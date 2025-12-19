@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<BaseLayout 
+  title="景點推薦" 
+  description="必訪景點與私房秘境，用鏡頭記錄每個令人驚艷的瞬間"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/travel">旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>景點</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>📍 景點推薦</h1>
+        <p class="section-subtitle">
+          從熱門景點到私房秘境，記錄每一個值得造訪的地方。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card 
+          href="/travel/okinawa"
+          title="🏝️ 沖繩海灘"
+          description="透明度極高的海水，絕美的沙灘，沖繩必訪海灘全攻略。"
+        />
+        <Card 
+          href="#"
+          title="⛩️ 京都神社"
+          description="千本鳥居、金閣寺、清水寺...京都經典景點巡禮。（即將推出）"
+        />
+        <Card 
+          href="#"
+          title="🗼 東京散策"
+          description="涉谷、新宿、淺草...東京各區特色景點介紹。（即將推出）"
+        />
+        <Card 
+          href="#"
+          title="🏔️ 自然秘境"
+          description="遠離塵囂的自然景點，適合放鬆心情的好去處。（即將推出）"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>景點分類</h2>
+        <p>
+          我會依據不同類型整理景點資訊：
+        </p>
+        <ul>
+          <li><strong>自然景觀</strong>：海灘、山岳、瀑布、國家公園</li>
+          <li><strong>歷史文化</strong>：古蹟、博物館、傳統建築</li>
+          <li><strong>都市探索</strong>：商圈、市集、夜生活</li>
+          <li><strong>戶外活動</strong>：潛水、健行、滑雪</li>
+        </ul>
+        
+        <h2>實用資訊</h2>
+        <p>
+          每篇景點介紹都會盡量包含以下資訊：
+        </p>
+        <ul>
+          <li>交通方式與建議路線</li>
+          <li>開放時間與門票資訊</li>
+          <li>最佳造訪時間</li>
+          <li>周邊景點與順遊推薦</li>
+          <li>攝影建議（最佳拍攝位置、時間）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

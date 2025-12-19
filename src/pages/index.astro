@@ -1,0 +1,70 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Card from '../components/Card.astro';
+---
+
+<BaseLayout 
+  title="Home" 
+  description="Kun Han Tech - 技術筆記、旅遊紀錄與生活分享"
+>
+  <section class="hero">
+    <div class="container">
+      <h1>嗨，我是 Kun Han 👋</h1>
+      <p class="hero-subtitle">
+        這裡是我的個人網站，分享技術筆記、旅遊紀錄與生活點滴。
+        歡迎四處逛逛！
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">探索更多</h2>
+        <p class="section-subtitle">選擇你感興趣的內容</p>
+      </div>
+      
+      <div class="card-grid">
+        <Card 
+          href="/chatbot"
+          title="💬 Chatbot"
+          description="AI 對話助手，即將上線！可以問我任何關於這個網站的問題。"
+        />
+        <Card 
+          href="/travel"
+          title="🌏 旅遊紀錄"
+          description="探索世界各地的美食、住宿與景點，分享我的旅行經驗。"
+        />
+        <Card 
+          href="/travel/okinawa"
+          title="🏝️ 沖繩之旅"
+          description="最新遊記：沖繩的陽光、海灘與美食，完整攻略分享。"
+        />
+        <Card 
+          href="https://github.com/kunhanl"
+          title="🔧 GitHub"
+          description="查看我的開源專案與程式碼，歡迎交流與合作。"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <h2 class="section-title">關於我</h2>
+      </div>
+      <div class="article-content">
+        <p>
+          我是一名軟體工程師，熱愛探索新技術與旅行。這個網站使用 Astro 建構，
+          追求極致的效能與 SEO 友善度。
+        </p>
+        <p>
+          平時喜歡研究 Web 技術、雲端架構與 AI 應用。閒暇時會規劃旅行，
+          記錄下每次旅途中的美好回憶。
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

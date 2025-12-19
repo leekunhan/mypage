@@ -1,0 +1,73 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<BaseLayout 
+  title="美食紀錄" 
+  description="世界各地的美食探索，從街邊小吃到米其林餐廳"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/travel">旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>美食</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🍜 美食紀錄</h1>
+        <p class="section-subtitle">
+          民以食為天！每到一個地方，品嚐當地美食是必不可少的行程。
+          這裡收錄了我在旅途中遇見的各種美味。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card 
+          href="/travel/okinawa"
+          title="🍣 沖繩美食"
+          description="阿古豬、沖繩麵、海葡萄...沖繩在地美食一次滿足。"
+        />
+        <Card 
+          href="#"
+          title="🍜 台北小吃"
+          description="夜市美食巡禮，從滷肉飯到珍珠奶茶，道地台灣味。（即將推出）"
+        />
+        <Card 
+          href="#"
+          title="🍕 東京食記"
+          description="拉麵、壽司、居酒屋，東京美食地圖持續擴充中。（即將推出）"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>美食探索原則</h2>
+        <ul>
+          <li><strong>在地優先</strong>：優先選擇當地人推薦的店家</li>
+          <li><strong>嘗試新事物</strong>：不設限，勇於嘗試從未吃過的料理</li>
+          <li><strong>紀錄分享</strong>：用照片與文字記錄每一次美食體驗</li>
+        </ul>
+        
+        <h2>推薦類型</h2>
+        <p>
+          從路邊攤到高級餐廳，從傳統料理到創意美食，
+          我都會親自體驗後再分享心得。每篇食記都會包含：
+        </p>
+        <ul>
+          <li>餐廳資訊（地址、營業時間）</li>
+          <li>推薦菜色與價位</li>
+          <li>用餐體驗與評價</li>
+          <li>實用小提醒</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

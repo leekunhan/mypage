@@ -1,0 +1,53 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="Chatbot" 
+  description="Kun Han Tech AI 對話助手 - 即將上線"
+>
+  <section class="page-content">
+    <div class="container">
+      <div class="coming-soon">
+        <span class="coming-soon-badge">🚀 Coming Soon</span>
+        <h1>AI Chatbot</h1>
+        <p class="hero-subtitle">
+          智能對話助手即將上線！<br />
+          你可以透過對話的方式，詢問關於這個網站的任何問題。
+        </p>
+        
+        <!-- Chatbot 互動區塊容器 -->
+        <section id="chatbot" class="chatbot-container" aria-label="Chatbot interface">
+          <div class="chatbot-placeholder">
+            <p style="color: var(--color-text-muted); text-align: center;">
+              💬 對話區塊預留位置<br />
+              <small>此區塊將在功能完成後啟用互動式對話界面</small>
+            </p>
+          </div>
+        </section>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content" style="margin: 0 auto;">
+        <h2>預計功能</h2>
+        <ul>
+          <li>詢問網站內容與旅遊資訊</li>
+          <li>取得技術文章摘要</li>
+          <li>個人化推薦</li>
+          <li>多語言支援</li>
+        </ul>
+        
+        <h2>技術規劃</h2>
+        <p>
+          Chatbot 將使用最小化的 JavaScript 實現互動功能，
+          後端串接 AI API 提供智能回覆。整個設計以使用者體驗為優先，
+          確保對話流暢且回應快速。
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

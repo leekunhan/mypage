@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<BaseLayout 
+  title="住宿推薦" 
+  description="旅途中的落腳處，從背包客棧到精品酒店的住宿體驗分享"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href="/travel">旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>住宿</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🏨 住宿推薦</h1>
+        <p class="section-subtitle">
+          好的住宿讓旅程更加完美。這裡分享我住過的飯店、民宿與特色住宿體驗。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card 
+          href="/travel/okinawa"
+          title="🌊 沖繩海景飯店"
+          description="面海房型推薦，在房間就能欣賞無敵海景。"
+        />
+        <Card 
+          href="#"
+          title="🏯 京都町家民宿"
+          description="體驗傳統日式住宿，感受古都的寧靜氛圍。（即將推出）"
+        />
+        <Card 
+          href="#"
+          title="🌆 東京商旅推薦"
+          description="交通便利、CP值高的商務旅館精選。（即將推出）"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>選擇住宿的考量</h2>
+        <p>
+          每個人對住宿的需求不同，我在選擇時通常會考慮以下幾點：
+        </p>
+        <ul>
+          <li><strong>地點</strong>：交通是否便利，距離主要景點的距離</li>
+          <li><strong>價格</strong>：符合預算且物超所值</li>
+          <li><strong>設施</strong>：房間大小、衛浴設備、Wi-Fi 品質</li>
+          <li><strong>評價</strong>：參考其他旅客的真實評價</li>
+          <li><strong>特色</strong>：是否有獨特的體驗或服務</li>
+        </ul>
+        
+        <h2>住宿類型</h2>
+        <p>
+          我會分享各種類型的住宿體驗，包括：
+        </p>
+        <ul>
+          <li>星級飯店 - 舒適度優先的選擇</li>
+          <li>設計旅店 - 注重美學與氛圍</li>
+          <li>民宿 Airbnb - 體驗在地生活</li>
+          <li>背包客棧 - 預算友善的選項</li>
+          <li>特色住宿 - 樹屋、露營車、玻璃屋等</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+

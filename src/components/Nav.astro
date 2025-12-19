@@ -1,0 +1,60 @@
+---
+const pathname = Astro.url.pathname;
+
+// Helper function to check if link is active
+function isActive(href: string): boolean {
+  if (href === '/') {
+    return pathname === '/';
+  }
+  return pathname.startsWith(href);
+}
+
+// Navigation items
+const navItems = [
+  { href: '/', label: '首頁' },
+  { href: '/chatbot', label: 'Chatbot' },
+  { 
+    href: '/travel', 
+    label: '旅遊',
+    children: [
+      { href: '/travel/food', label: '美食' },
+      { href: '/travel/home', label: '住宿' },
+      { href: '/travel/location', label: '景點' },
+      { href: '/travel/okinawa', label: '沖繩' },
+    ]
+  },
+];
+---
+
+<nav class="main-nav" aria-label="Main navigation">
+  {navItems.map((item) => (
+    item.children ? (
+      <div class="nav-dropdown">
+        <a 
+          href={item.href} 
+          class:list={['nav-link', { active: isActive(item.href) }]}
+        >
+          {item.label} ▾
+        </a>
+        <div class="nav-dropdown-content">
+          {item.children.map((child) => (
+            <a 
+              href={child.href} 
+              class:list={['nav-dropdown-link', { active: pathname === child.href }]}
+            >
+              {child.label}
+            </a>
+          ))}
+        </div>
+      </div>
+    ) : (
+      <a 
+        href={item.href} 
+        class:list={['nav-link', { active: isActive(item.href) }]}
+      >
+        {item.label}
+      </a>
+    )
+  ))}
+</nav>
+

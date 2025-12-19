@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+---
+
+<BaseLayout 
+  title="旅遊紀錄" 
+  description="探索世界各地的美食、住宿與景點，分享旅行經驗與攻略"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>旅遊</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🌏 旅遊紀錄</h1>
+        <p class="section-subtitle">
+          走過的路、看過的風景、嚐過的美味，都是人生中珍貴的回憶。
+          這裡記錄了我的旅行足跡與心得分享。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card 
+          href="/travel/food"
+          title="🍜 美食"
+          description="世界各地的美食探索，從街邊小吃到米其林餐廳，記錄每一次味蕾的感動。"
+        />
+        <Card 
+          href="/travel/home"
+          title="🏨 住宿"
+          description="旅途中的落腳處，從背包客棧到精品酒店，分享住宿體驗與推薦。"
+        />
+        <Card 
+          href="/travel/location"
+          title="📍 景點"
+          description="必訪景點與私房秘境，用鏡頭記錄每個令人驚艷的瞬間。"
+        />
+        <Card 
+          href="/travel/okinawa"
+          title="🏝️ 沖繩"
+          description="最新遊記：沖繩完整攻略，涵蓋交通、美食、景點與行程規劃。"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>旅行哲學</h2>
+        <p>
+          旅行對我來說，不只是換個地方生活，更是一種學習與成長的過程。
+          每到一個新的地方，我總是嘗試融入當地的生活節奏，
+          體驗在地文化，品嚐道地美食。
+        </p>
+        <p>
+          這個區塊將持續更新我的旅行紀錄，希望能為正在規劃旅程的你提供一些參考與靈感。
+        </p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
+
