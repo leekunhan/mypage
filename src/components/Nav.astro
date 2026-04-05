@@ -1,48 +1,35 @@
 ---
-const base = import.meta.env.BASE_URL; // '/mypage'
+const base = import.meta.env.BASE_URL;
 const pathname = Astro.url.pathname;
 
 function isActive(path: string): boolean {
   if (path === '/') return pathname === base || pathname === `${base}/`;
   return pathname.startsWith(`${base}${path}`);
 }
-
-const navItems = [
-  { href: `${base}/`, path: '/', label: '首頁' },
-  { href: `${base}/chatbot`, path: '/chatbot', label: 'Chatbot' },
-  {
-    href: `${base}/travel`, path: '/travel',
-    label: '旅遊',
-    children: [
-      { href: `${base}/travel/okinawa`, path: '/travel/okinawa', label: '🏝️ 沖繩' },
-      { href: `${base}/travel/okinawa/itinerary`, path: '/travel/okinawa/itinerary', label: '　五日行程' },
-      { href: `${base}/travel/okinawa/food`, path: '/travel/okinawa/food', label: '　美食' },
-      { href: `${base}/travel/okinawa/location`, path: '/travel/okinawa/location', label: '　景點' },
-      { href: `${base}/travel/okinawa/home`, path: '/travel/okinawa/home', label: '　住宿' },
-    ]
-  },
-];
 ---
 
 <nav class="main-nav" aria-label="Main navigation">
-  {navItems.map((item) => (
-    item.children ? (
-      <div class="nav-dropdown">
-        <a href={item.href} class:list={['nav-link', { active: isActive(item.path) }]}>
-          {item.label} ▾
+  <a href={`${base}/`} class:list={['nav-link', { active: isActive('/') }]}>首頁</a>
+  <a href={`${base}/chatbot`} class:list={['nav-link', { active: isActive('/chatbot') }]}>Chatbot</a>
+
+  <div class="nav-dropdown">
+    <a href={`${base}/travel`} class:list={['nav-link', { active: isActive('/travel') }]}>
+      旅遊 ▾
+    </a>
+    <div class="nav-dropdown-content">
+
+      <div class="nav-dropdown-nested">
+        <a href={`${base}/travel/okinawa`} class:list={['nav-dropdown-link', { active: isActive('/travel/okinawa') }]}>
+          🏝️ 沖繩 ▶
         </a>
-        <div class="nav-dropdown-content">
-          {item.children.map((child) => (
-            <a href={child.href} class:list={['nav-dropdown-link', { active: isActive(child.path) }]}>
-              {child.label}
-            </a>
-          ))}
+        <div class="nav-dropdown-nested-content">
+          <a href={`${base}/travel/okinawa/itinerary`} class:list={['nav-dropdown-link', { active: isActive('/travel/okinawa/itinerary') }]}>五日行程</a>
+          <a href={`${base}/travel/okinawa/food`} class:list={['nav-dropdown-link', { active: isActive('/travel/okinawa/food') }]}>美食</a>
+          <a href={`${base}/travel/okinawa/location`} class:list={['nav-dropdown-link', { active: isActive('/travel/okinawa/location') }]}>景點</a>
+          <a href={`${base}/travel/okinawa/home`} class:list={['nav-dropdown-link', { active: isActive('/travel/okinawa/home') }]}>住宿</a>
         </div>
       </div>
-    ) : (
-      <a href={item.href} class:list={['nav-link', { active: isActive(item.path) }]}>
-        {item.label}
-      </a>
-    )
-  ))}
+
+    </div>
+  </div>
 </nav>

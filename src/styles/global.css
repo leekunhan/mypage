@@ -288,6 +288,32 @@ img {
   background: var(--color-bg-secondary);
 }
 
+/* Nested dropdown */
+.nav-dropdown-nested {
+  position: relative;
+}
+
+.nav-dropdown-nested-content {
+  position: absolute;
+  top: 0;
+  left: 100%;
+  min-width: 140px;
+  padding: var(--space-2);
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateX(4px);
+  transition: all var(--transition-fast);
+}
+
+.nav-dropdown-nested:hover .nav-dropdown-nested-content {
+  opacity: 1;
+  visibility: visible;
+  transform: translateX(0);
+}
+
 /* Footer */
 .site-footer {
   padding: var(--space-8) 0;
