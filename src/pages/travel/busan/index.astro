@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="釜山旅遊指南" description="釜山旅遊攻略：海雲台、甘川洞文化村、西面美食街與海鮮市場，韓國港口城市完整導覽。">
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>釜山</span>
+      </nav>
+      <div class="section-header">
+        <h1>🌊 釜山旅遊指南</h1>
+        <p class="section-subtitle">韓國第二大城，海鮮、彩色山城與絕美海灘的完美組合。</p>
+      </div>
+      <div class="article-content">
+        <p>內容整理中，敬請期待！</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

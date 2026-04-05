@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="大阪旅遊指南" description="大阪旅遊攻略：道頓堀、章魚燒、環球影城與城崎溫泉，關西美食之都完整導覽。">
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>大阪</span>
+      </nav>
+      <div class="section-header">
+        <h1>🍜 大阪旅遊指南</h1>
+        <p class="section-subtitle">日本關西美食之都，道頓堀的燈光與章魚燒的香氣。</p>
+      </div>
+      <div class="article-content">
+        <p>內容整理中，敬請期待！</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

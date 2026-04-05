@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout title="東京旅遊指南" description="東京旅遊攻略：澀谷、新宿、淺草、秋葉原，日本首都多元魅力完整導覽。">
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>東京</span>
+      </nav>
+      <div class="section-header">
+        <h1>🗼 東京旅遊指南</h1>
+        <p class="section-subtitle">傳統與現代並存的日本首都，每個街區都有不同的驚喜。</p>
+      </div>
+      <div class="article-content">
+        <p>內容整理中，敬請期待！</p>
+      </div>
+    </div>
+  </section>
+</BaseLayout>
