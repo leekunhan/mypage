@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
 <BaseLayout 
@@ -10,9 +11,9 @@ import Card from '../../components/Card.astro';
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">首頁</a>
+        <a href={base}>首頁</a>
         <span class="breadcrumb-separator">/</span>
-        <a href="/travel">旅遊</a>
+        <a href={`${base}travel`}>旅遊</a>
         <span class="breadcrumb-separator">/</span>
         <span>住宿</span>
       </nav>
@@ -26,7 +27,7 @@ import Card from '../../components/Card.astro';
 
       <div class="card-grid">
         <Card 
-          href="/travel/okinawa"
+          href={`${base}travel/okinawa`}
           title="🌊 沖繩海景飯店"
           description="面海房型推薦，在房間就能欣賞無敵海景。"
         />

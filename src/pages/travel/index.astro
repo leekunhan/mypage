@@ -1,16 +1,17 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import Card from '../../components/Card.astro';
+const base = import.meta.env.BASE_URL;
 ---
 
-<BaseLayout 
-  title="旅遊紀錄" 
+<BaseLayout
+  title="旅遊紀錄"
   description="探索世界各地的美食、住宿與景點，分享旅行經驗與攻略"
 >
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
-        <a href="/">首頁</a>
+        <a href={base}>首頁</a>
         <span class="breadcrumb-separator">/</span>
         <span>旅遊</span>
       </nav>
@@ -24,25 +25,25 @@ import Card from '../../components/Card.astro';
       </div>
 
       <div class="card-grid">
-        <Card 
-          href="/travel/food"
+        <Card
+          href={`${base}travel/food`}
           title="🍜 美食"
-          description="世界各地的美食探索，從街邊小吃到米其林餐廳，記錄每一次味蕾的感動。"
+          description="沖繩在地美食探索，13 間精選餐廳完整介紹。"
         />
-        <Card 
-          href="/travel/home"
+        <Card
+          href={`${base}travel/home`}
           title="🏨 住宿"
-          description="旅途中的落腳處，從背包客棧到精品酒店，分享住宿體驗與推薦。"
+          description="旅途中的落腳處，住宿體驗與推薦。"
         />
-        <Card 
-          href="/travel/location"
+        <Card
+          href={`${base}travel/location`}
           title="📍 景點"
-          description="必訪景點與私房秘境，用鏡頭記錄每個令人驚艷的瞬間。"
+          description="沖繩必訪景點完整指南，從世界遺產到海灘度假區。"
         />
-        <Card 
-          href="/travel/okinawa"
+        <Card
+          href={`${base}travel/okinawa`}
           title="🏝️ 沖繩"
-          description="最新遊記：沖繩完整攻略，涵蓋交通、美食、景點與行程規劃。"
+          description="最新遊記：沖繩五日四夜完整攻略，涵蓋交通、美食、景點與行程規劃。"
         />
       </div>
     </div>
@@ -64,4 +65,3 @@ import Card from '../../components/Card.astro';
     </div>
   </section>
 </BaseLayout>
-
