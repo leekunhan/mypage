@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Card from '../../components/Card.astro';
 ---
 
-<BaseLayout 
-  title="景點推薦" 
-  description="必訪景點與私房秘境，用鏡頭記錄每個令人驚艷的瞬間"
+<BaseLayout
+  title="沖繩景點指南"
+  description="沖繩必訪景點完整介紹：世界遺產城堡、清澈海灘、美國村、水族館，從南到北一次掌握。"
 >
   <section class="page-content">
     <div class="container">
@@ -14,68 +13,169 @@ import Card from '../../components/Card.astro';
         <span class="breadcrumb-separator">/</span>
         <a href="/travel">旅遊</a>
         <span class="breadcrumb-separator">/</span>
-        <span>景點</span>
+        <span>沖繩景點</span>
       </nav>
 
-      <div class="section-header">
-        <h1>📍 景點推薦</h1>
-        <p class="section-subtitle">
-          從熱門景點到私房秘境，記錄每一個值得造訪的地方。
-        </p>
-      </div>
+      <header class="article-header">
+        <h1>📍 沖繩景點指南</h1>
+        <p class="section-subtitle">從南到北，完整掌握沖繩本島必訪景點</p>
+      </header>
 
-      <div class="card-grid">
-        <Card 
-          href="/travel/okinawa"
-          title="🏝️ 沖繩海灘"
-          description="透明度極高的海水，絕美的沙灘，沖繩必訪海灘全攻略。"
-        />
-        <Card 
-          href="#"
-          title="⛩️ 京都神社"
-          description="千本鳥居、金閣寺、清水寺...京都經典景點巡禮。（即將推出）"
-        />
-        <Card 
-          href="#"
-          title="🗼 東京散策"
-          description="涉谷、新宿、淺草...東京各區特色景點介紹。（即將推出）"
-        />
-        <Card 
-          href="#"
-          title="🏔️ 自然秘境"
-          description="遠離塵囂的自然景點，適合放鬆心情的好去處。（即將推出）"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
       <div class="article-content">
-        <h2>景點分類</h2>
         <p>
-          我會依據不同類型整理景點資訊：
+          沖繩本島依地理位置大致分為南、中、北三區，各有不同特色。
+          南部那霸周邊以歷史古蹟為主；中部是繁華的美國村與海灘度假區；
+          北部則保有最原始的自然風光與傳統聚落。
+        </p>
+
+        <h2>🏰 歷史文化景點</h2>
+
+        <h3>1. 勝連城跡（Katsuren Castle Ruins）</h3>
+        <p>
+          建於 12 世紀的世界文化遺產，沖繩現存最古老的城跡之一。
+          位於高台，可俯瞰東海與中城灣美景。免門票，爬上城跡頂端後視野開闊。
         </p>
         <ul>
-          <li><strong>自然景觀</strong>：海灘、山岳、瀑布、國家公園</li>
-          <li><strong>歷史文化</strong>：古蹟、博物館、傳統建築</li>
-          <li><strong>都市探索</strong>：商圈、市集、夜生活</li>
-          <li><strong>戶外活動</strong>：潛水、健行、滑雪</li>
+          <li><strong>門票</strong>：免費</li>
+          <li><strong>開放時間</strong>：09:00 – 18:00</li>
+          <li><strong>地區</strong>：中部（與那城）</li>
         </ul>
-        
-        <h2>實用資訊</h2>
+
+        <h3>2. 首里城（Shuri Castle）</h3>
         <p>
-          每篇景點介紹都會盡量包含以下資訊：
+          琉球王國的王宮，已被列為世界文化遺產。
+          2019 年遭大火損毀，目前正積極重建中，部分區域仍開放參觀。
+          紅色系的琉球建築風格獨樹一幟，與日本本土城堡截然不同。
         </p>
         <ul>
-          <li>交通方式與建議路線</li>
-          <li>開放時間與門票資訊</li>
-          <li>最佳造訪時間</li>
-          <li>周邊景點與順遊推薦</li>
-          <li>攝影建議（最佳拍攝位置、時間）</li>
+          <li><strong>地區</strong>：南部（那霸市）</li>
+          <li><strong>狀態</strong>：重建中，部分開放</li>
+        </ul>
+
+        <h3>3. 玉泉洞（Gyokusendo Cave／Okinawa World）</h3>
+        <p>
+          日本第二長的鐘乳石洞，開放參觀部分約 890 公尺，洞內常年 21°C 涼爽宜人。
+          園區內還有琉球王國村、EISA 傳統舞蹈表演（10:30、12:30、14:30）。
+          建議 10:30 前抵達避開人潮。
+        </p>
+        <ul>
+          <li><strong>門票</strong>：大人 ¥2,000</li>
+          <li><strong>開放時間</strong>：09:00 – 17:30（最後入場 17:00）</li>
+          <li><strong>停車</strong>：免費 96 格</li>
+          <li><strong>地區</strong>：南部（南城市）</li>
+        </ul>
+
+        <h3>4. 波上宮（Naminoue Shrine）</h3>
+        <p>
+          沖繩最古老的神社，建於面海珊瑚岩石崖頂，正紅色的鳥居與藍海相映成趣。
+          全年 24 小時開放，免費入場，境內有御守販售（09:00-17:00）。
+        </p>
+        <ul>
+          <li><strong>門票</strong>：免費</li>
+          <li><strong>開放時間</strong>：24 小時</li>
+          <li><strong>地區</strong>：南部（那霸市）</li>
+        </ul>
+
+        <h2>🌊 自然景觀</h2>
+
+        <h3>5. 沖繩美麗海水族館（Churaumi Aquarium）</h3>
+        <p>
+          日本最大的水族館，「黑潮之海」展示缸長達 35 公尺，
+          可近距離觀賞鯨鯊與鬼蝠魟悠游。另設海豚劇場與儒艮展示區。
+          建議安排半天（3-4 小時）。
+        </p>
+        <ul>
+          <li><strong>門票</strong>：大人 ¥2,180</li>
+          <li><strong>開放時間</strong>：08:30 – 18:30</li>
+          <li><strong>地區</strong>：北部（本部町）</li>
+        </ul>
+
+        <h3>6. 古宇利大橋與古宇利島（Kouri Bridge & Island）</h3>
+        <p>
+          全長約 2 公里的跨海大橋，橋面可見清澈碧藍海水，
+          是沖繩最具代表性的拍照景點。島上有著名的「愛心岩（ハートロック）」，
+          需步行一段路才能抵達，建議穿好走的鞋。
+        </p>
+        <ul>
+          <li><strong>門票</strong>：免費（過橋免費）</li>
+          <li><strong>地區</strong>：北部（今歸仁村）</li>
+        </ul>
+
+        <h3>7. 瀨長島海風市集（Senaga Island Umikaji Terrace）</h3>
+        <p>
+          那霸機場附近的白色地中海風格商店街，依山坡錯落排列，可俯瞰大海。
+          傍晚夕陽時分最為美麗，還能近距離觀賞飛機起降，是攝影愛好者天堂。
+        </p>
+        <ul>
+          <li><strong>開放時間</strong>：10:00 – 21:00</li>
+          <li><strong>停車</strong>：免費 99 格</li>
+          <li><strong>地區</strong>：南部（豐見城市）</li>
+        </ul>
+
+        <h2>🎡 娛樂購物</h2>
+
+        <h3>8. 美國村（American Village）</h3>
+        <p>
+          以美式風格為主題的大型娛樂購物區，彩虹摩天輪是地標。
+          有時裝店、餐廳、電影院、露天廣場，白天夜晚都熱鬧。
+          Depot Island、Carnival Park 等子商圈值得慢逛。
+        </p>
+        <ul>
+          <li><strong>地區</strong>：中部（北谷町）</li>
+          <li><strong>推薦</strong>：傍晚夜景、彩虹摩天輪</li>
+        </ul>
+
+        <h3>9. 大型購物中心</h3>
+        <p>
+          <strong>Aeon Mall Rycom</strong>（イオンモール沖縄ライカム）：
+          沖繩最大購物中心，美食廣場、各大品牌一應俱全。
+          雨天備案首選。
+        </p>
+        <p>
+          <strong>SAN-A Parco City</strong>：
+          那霸附近的大型購物中心，可找到許多日本限定商品。
+        </p>
+
+        <h3>10. 港川外人住宅（Minato-gawa Stateside Town）</h3>
+        <p>
+          前美軍眷屬宿舍改建成的文青商圈，洋房外觀保留美式風格。
+          聚集特色咖啡廳、藝術品店、個性服飾，是沖繩最文青的角落。
+        </p>
+        <ul>
+          <li><strong>地區</strong>：中部（浦添市）</li>
+        </ul>
+
+        <h3>11. 那霸國際通（Kokusai Dori）</h3>
+        <p>
+          那霸市最繁華的購物步行街，全長約 1.6 公里，兩側滿是紀念品店、
+          餐廳、居酒屋。DONKI（24 小時）、Calbee+、鹽屋等是必逛清單。
+          晚間充滿活力，適合最後一晚盡情購物。
+        </p>
+        <ul>
+          <li><strong>開放時間</strong>：多數店家 10:00 – 22:00，DONKI 24 小時</li>
+          <li><strong>地區</strong>：南部（那霸市）</li>
+        </ul>
+
+        <h2>🌸 其他推薦</h2>
+
+        <h3>12. 宜野灣海濱公園（Ginowan Seaside Park）</h3>
+        <p>
+          面海的市民公園，有沙灘、草坪與兒童設施，是沖繩人休閒的好去處。
+          每年夏季在此舉辦「琉球海炎祭」（Ryukyu Kaiensai）花火大會，
+          視覺壯觀且搭配音樂演出，是沖繩最大煙火盛事之一。
+        </p>
+        <ul>
+          <li><strong>地區</strong>：中部（宜野灣市）</li>
+        </ul>
+
+        <h2>💡 旅遊小提醒</h2>
+        <ul>
+          <li><strong>最佳季節</strong>：3-5 月（春）、9-11 月（秋）避開梅雨與颱風</li>
+          <li><strong>交通</strong>：強烈建議租車自駕，大眾運輸覆蓋有限</li>
+          <li><strong>文化尊重</strong>：歷史遺跡請保持安靜，拍照前先確認是否允許</li>
+          <li><strong>駕照</strong>：需備妥國際駕照，記得帶台灣駕照正本與日語譯本</li>
         </ul>
       </div>
     </div>
   </section>
 </BaseLayout>
-

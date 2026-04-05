@@ -1,11 +1,10 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
-import Card from '../../components/Card.astro';
 ---
 
-<BaseLayout 
-  title="美食紀錄" 
-  description="世界各地的美食探索，從街邊小吃到米其林餐廳"
+<BaseLayout
+  title="沖繩美食指南"
+  description="品嚐琉球傳統風味，體驗道地沖繩料理。13 間精選餐廳完整介紹。"
 >
   <section class="page-content">
     <div class="container">
@@ -14,60 +13,157 @@ import Card from '../../components/Card.astro';
         <span class="breadcrumb-separator">/</span>
         <a href="/travel">旅遊</a>
         <span class="breadcrumb-separator">/</span>
-        <span>美食</span>
+        <span>沖繩美食</span>
       </nav>
 
-      <div class="section-header">
-        <h1>🍜 美食紀錄</h1>
-        <p class="section-subtitle">
-          民以食為天！每到一個地方，品嚐當地美食是必不可少的行程。
-          這裡收錄了我在旅途中遇見的各種美味。
-        </p>
-      </div>
+      <header class="article-header">
+        <h1>🍜 沖繩美食指南</h1>
+        <p class="section-subtitle">品嚐琉球傳統風味，體驗道地沖繩料理</p>
+      </header>
 
-      <div class="card-grid">
-        <Card 
-          href="/travel/okinawa"
-          title="🍣 沖繩美食"
-          description="阿古豬、沖繩麵、海葡萄...沖繩在地美食一次滿足。"
-        />
-        <Card 
-          href="#"
-          title="🍜 台北小吃"
-          description="夜市美食巡禮，從滷肉飯到珍珠奶茶，道地台灣味。（即將推出）"
-        />
-        <Card 
-          href="#"
-          title="🍕 東京食記"
-          description="拉麵、壽司、居酒屋，東京美食地圖持續擴充中。（即將推出）"
-        />
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="container">
       <div class="article-content">
-        <h2>美食探索原則</h2>
-        <ul>
-          <li><strong>在地優先</strong>：優先選擇當地人推薦的店家</li>
-          <li><strong>嘗試新事物</strong>：不設限，勇於嘗試從未吃過的料理</li>
-          <li><strong>紀錄分享</strong>：用照片與文字記錄每一次美食體驗</li>
-        </ul>
-        
-        <h2>推薦類型</h2>
         <p>
-          從路邊攤到高級餐廳，從傳統料理到創意美食，
-          我都會親自體驗後再分享心得。每篇食記都會包含：
+          沖繩料理融合了日本、中國與東南亞的飲食文化，形成獨特的琉球飲食傳統。
+          沖繩人偏好豬肉勝於魚肉，常用苦瓜、海藻、紫番薯等食材。
+          沖繩也是日本長壽之鄉，飲食文化與健康息息相關。
+        </p>
+
+        <blockquote>
+          建議熱門餐廳提前 2-3 天預訂，尤其週末。公共市場有平價在地小吃。
+          用餐禮儀：入座前說「いただきます」，餐後說「ごちそうさまでした」。
+        </blockquote>
+
+        <h2>🍽️ 精選餐廳</h2>
+
+        <h3>1. Happy Bowls Okinawa</h3>
+        <p>
+          健康取向的早餐/早午餐店，主打巴西莓果碗（Acai Bowl）、果昔與輕食。
+          距離中部住宿步行約 5 分鐘，適合第一天早晨元氣出發。
         </p>
         <ul>
-          <li>餐廳資訊（地址、營業時間）</li>
-          <li>推薦菜色與價位</li>
-          <li>用餐體驗與評價</li>
-          <li>實用小提醒</li>
+          <li><strong>推薦</strong>：Acai Bowl、新鮮果昔</li>
+          <li><strong>風格</strong>：健康輕食、早午餐</li>
+        </ul>
+
+        <h3>2. A&W Makiminato 牧港店</h3>
+        <p>
+          沖繩知名在地速食連鎖，與台灣或美國的 A&W 同品牌卻有在地特色。
+          Root Beer 浮冰、漢堡、熱狗是必點項目，也是沖繩文化的一部分。
+        </p>
+        <ul>
+          <li><strong>營業時間</strong>：06:00 – 02:00</li>
+          <li><strong>推薦</strong>：Root Beer Float、Mozza Burger</li>
+        </ul>
+
+        <h3>3. Aeon Mall Rycom 美食廣場</h3>
+        <p>
+          沖繩最大的購物中心之一，美食廣場匯集各式料理。
+          天氣不佳或需要採購時的好去處，選擇多元，適合一家大小。
+        </p>
+        <ul>
+          <li><strong>位置</strong>：Aeon Mall Rycom 沖繩ライカム</li>
+        </ul>
+
+        <h3>4. Bikkuri Donkey Chatan 北谷店</h3>
+        <p>
+          日本連鎖家庭餐廳，主打漢堡排（ハンバーグ）。
+          份量紮實、價格親民，適合全家用餐，孩子最愛。
+        </p>
+        <ul>
+          <li><strong>營業時間</strong>：09:00 – 00:00</li>
+          <li><strong>推薦</strong>：起司漢堡排、蘑菇醬漢堡排</li>
+        </ul>
+
+        <h3>5. Fresh Plaza Union Chatan 北谷店</h3>
+        <p>
+          24 小時超市，提供新鮮食材、熟食便當、甜點、飲料等。
+          深夜或早晨需要補給時非常方便，價格合理。
+        </p>
+        <ul>
+          <li><strong>營業時間</strong>：24 小時</li>
+          <li><strong>推薦</strong>：沖繩限定零食、便當、甜點</li>
+        </ul>
+
+        <h3>6. 料理食堂 大盤舞舞（Ryoji Shokudo Daibanburu Mai）</h3>
+        <p>
+          人氣海鮮居酒屋，以大份量著稱。新鮮魚貝類料理、泡盛（沖繩燒酒）
+          搭配海景，是沖繩式宴飲文化的代表。適合多人共享。
+        </p>
+        <ul>
+          <li><strong>營業時間</strong>：10:00 – 17:00</li>
+          <li><strong>推薦</strong>：海鮮拼盤、沖繩燒酒</li>
+        </ul>
+
+        <h3>7. 古宇利蝦蝦（Kouri Shrimp）</h3>
+        <p>
+          位於古宇利島上的夏威夷風格蝦蝦飯車，以大蒜奶油蝦配飯聞名。
+          在島上取景獨特，吹著海風享用是最大魅力。人潮多，建議提早前往。
+        </p>
+        <ul>
+          <li><strong>位置</strong>：古宇利島</li>
+          <li><strong>推薦</strong>：Garlic Shrimp 蒜香蝦飯</li>
+        </ul>
+
+        <h3>8. Potama（ポーたま）</h3>
+        <p>
+          沖繩版本的飯糰（おにぎり）專賣店，用薄煎蛋包裹米飯與各式食材。
+          美國村附近有分店，早餐或下午茶的好選擇，價格實惠。
+        </p>
+        <ul>
+          <li><strong>位置</strong>：美國村附近</li>
+          <li><strong>推薦</strong>：ポーク玉子（午餐肉蛋飯糰）</li>
+        </ul>
+
+        <h3>9. Taco Rice Cafe Kijimuna</h3>
+        <p>
+          塔可飯（Taco Rice）是沖繩獨有的墨西哥日本混搭料理，
+          將塔可配料放在白米飯上。這家店的招牌是鋪上荷包蛋的版本，
+          位於美國村，是沖繩必嚐體驗。
+        </p>
+        <ul>
+          <li><strong>位置</strong>：美國村</li>
+          <li><strong>推薦</strong>：Taco Rice 加蛋</li>
+        </ul>
+
+        <h3>10. 回轉壽司 市場みはま（Kaiten Sushi Market Mihama）</h3>
+        <p>
+          美國村附近的回轉壽司，食材新鮮、種類豐富。
+          沖繩鄰近大海，海鮮壽司品質特別出色，適合晚餐。
+        </p>
+        <ul>
+          <li><strong>位置</strong>：美國村</li>
+          <li><strong>推薦</strong>：鮮魚握壽司、海膽</li>
+        </ul>
+
+        <h3>11. Blue Seal 藍印冰淇淋</h3>
+        <p>
+          沖繩標誌性的冰淇淋品牌，發源於 1948 年美軍基地時期。
+          紫番薯、鹽餅乾、沖繩黑糖等在地口味是必試，全島多處有分店。
+        </p>
+        <ul>
+          <li><strong>推薦口味</strong>：Purple Yam（紫番薯）、Salty Cookie（鹽餅乾）</li>
+        </ul>
+
+        <h3>12. 第一牧志公設市場（Makishi Public Market）</h3>
+        <p>
+          那霸最具代表性的傳統市場，已於 2023 年 3 月重新開幕。
+          一樓販售新鮮魚貝、肉類、蔬果，二樓餐廳可將一樓食材帶上去烹調。
+          是感受沖繩在地生活的絕佳地點。
+        </p>
+        <ul>
+          <li><strong>營業時間</strong>：08:00 – 21:00（餐廳至 22:00）</li>
+          <li><strong>位置</strong>：那霸市，國際通附近</li>
+          <li><strong>推薦</strong>：海鮮料理、沖繩豬腳（ティービチ）</li>
+        </ul>
+
+        <h2>💡 美食小提醒</h2>
+        <ul>
+          <li>熱門餐廳建議提前 2-3 天預約，尤其週末假日</li>
+          <li>公共市場與超市有平價在地小吃，是省錢好選擇</li>
+          <li>沖繩超商（Lawson、FamilyMart）也有沖繩限定商品值得一試</li>
+          <li>自駕期間注意不要飲酒，沖繩泡盛留到最後一天品嚐</li>
         </ul>
       </div>
     </div>
   </section>
 </BaseLayout>
-
