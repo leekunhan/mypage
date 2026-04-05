@@ -1,24 +1,23 @@
 ---
-const base = import.meta.env.BASE_URL; // '/mypage/'
+const base = import.meta.env.BASE_URL; // '/mypage'
 const pathname = Astro.url.pathname;
 
 function isActive(path: string): boolean {
-  const full = path === '/' ? base : `${base}${path.slice(1)}`;
-  if (path === '/') return pathname === base || pathname === base.slice(0, -1);
-  return pathname.startsWith(full);
+  if (path === '/') return pathname === base || pathname === `${base}/`;
+  return pathname.startsWith(`${base}${path}`);
 }
 
 const navItems = [
-  { href: base, path: '/', label: '首頁' },
-  { href: `${base}chatbot`, path: '/chatbot', label: 'Chatbot' },
+  { href: `${base}/`, path: '/', label: '首頁' },
+  { href: `${base}/chatbot`, path: '/chatbot', label: 'Chatbot' },
   {
-    href: `${base}travel`, path: '/travel',
+    href: `${base}/travel`, path: '/travel',
     label: '旅遊',
     children: [
-      { href: `${base}travel/food`, path: '/travel/food', label: '美食' },
-      { href: `${base}travel/home`, path: '/travel/home', label: '住宿' },
-      { href: `${base}travel/location`, path: '/travel/location', label: '景點' },
-      { href: `${base}travel/okinawa`, path: '/travel/okinawa', label: '沖繩' },
+      { href: `${base}/travel/food`, path: '/travel/food', label: '美食' },
+      { href: `${base}/travel/home`, path: '/travel/home', label: '住宿' },
+      { href: `${base}/travel/location`, path: '/travel/location', label: '景點' },
+      { href: `${base}/travel/okinawa`, path: '/travel/okinawa', label: '沖繩' },
     ]
   },
 ];
