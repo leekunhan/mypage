@@ -1,0 +1,71 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Card from '../../../components/Card.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="沖繩旅遊指南"
+  description="沖繩完整旅遊資訊：五日行程、美食餐廳、必訪景點、住宿推薦一次掌握。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>沖繩</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🏝️ 沖繩旅遊指南</h1>
+        <p class="section-subtitle">
+          探索日本最南端的度假勝地，清澈海水、琉球文化與道地美食等你來發現。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card
+          href={`${base}/travel/okinawa/itinerary`}
+          title="🗓️ 五日行程"
+          description="五日四夜完整攻略：從出發前準備到每日行程規劃，帶你玩遍沖繩北中南。"
+        />
+        <Card
+          href={`${base}/travel/okinawa/food`}
+          title="🍜 美食指南"
+          description="13 間精選餐廳完整介紹，從 A&W 到古宇利蝦蝦，道地沖繩味全收錄。"
+        />
+        <Card
+          href={`${base}/travel/okinawa/location`}
+          title="📍 景點攻略"
+          description="12 個必訪景點詳情，含門票、開放時間與交通建議。"
+        />
+        <Card
+          href={`${base}/travel/okinawa/home`}
+          title="🏨 住宿推薦"
+          description="沖繩各區住宿選擇，從海景飯店到在地民宿。"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>關於沖繩</h2>
+        <p>
+          沖繩（Okinawa）是日本最南端的縣，由 160 多個大小島嶼組成。
+          擁有獨特的琉球王國歷史文化、清澈的亞熱帶海洋，以及融合日本、中國與東南亞的飲食傳統。
+          從台灣飛行僅需約 1.5 小時，是台灣人出國旅遊的熱門首選。
+        </p>
+        <h3>最佳旅遊時機</h3>
+        <ul>
+          <li><strong>3-5 月（春）</strong>：氣候舒適，賞花踏青</li>
+          <li><strong>9-11 月（秋）</strong>：避開梅雨與颱風，海水仍溫暖</li>
+          <li><strong>避開</strong>：5-6 月（梅雨）、7-9 月（颱風季）</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

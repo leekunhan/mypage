@@ -1,0 +1,78 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="沖繩住宿推薦"
+  description="沖繩各區住宿選擇：海景飯店、在地民宿與實用選房建議。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel/okinawa`}>沖繩</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>住宿</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🏨 沖繩住宿推薦</h1>
+        <p class="section-subtitle">
+          好的住宿讓旅程更加完美。以下分享沖繩各區的住宿建議與選擇考量。
+        </p>
+      </div>
+
+      <div class="article-content">
+        <h2>📍 依地區選擇住宿</h2>
+
+        <h3>中部（北谷・美國村周邊）— 推薦第 1-2 晚</h3>
+        <p>
+          適合喜歡逛街購物、體驗美式風情的旅客。距離美國村、勝連城跡、
+          美麗海水族館都在合理車程內，是自駕遊的絕佳根據地。
+        </p>
+        <ul>
+          <li>北谷（Chatan）、沖繩市（Okinawa City）一帶</li>
+          <li>有許多連鎖飯店、商務旅館選擇</li>
+          <li>附近有 Fresh Plaza Union 24 小時超市，補給方便</li>
+        </ul>
+
+        <h3>那霸市區 — 推薦第 3-4 晚</h3>
+        <p>
+          便於探索南部景點：玉泉洞、瀨長島、波上宮、首里城與國際通。
+          那霸機場附近，最後一晚住這裡最方便還車與搭機。
+        </p>
+        <ul>
+          <li>推薦住宿：<strong>STRATA Naha</strong> 附近區域</li>
+          <li>國際通步行可達，購物採購方便</li>
+          <li>選擇多元，價格相對中部更親民</li>
+        </ul>
+
+        <h2>🏨 住宿類型</h2>
+        <ul>
+          <li><strong>海景飯店</strong>：在房間就能欣賞無敵海景，通常位於中北部</li>
+          <li><strong>連鎖商務旅館</strong>：Vessel Hotel、Dormy Inn 等，品質穩定</li>
+          <li><strong>民宿 / Airbnb</strong>：體驗在地生活，適合長住</li>
+          <li><strong>度假村</strong>：全包式設施，適合家庭旅遊</li>
+        </ul>
+
+        <h2>💡 選擇住宿的考量</h2>
+        <ul>
+          <li><strong>地點</strong>：是否方便前往當天行程的景點</li>
+          <li><strong>停車</strong>：自駕必確認有免費或付費停車場</li>
+          <li><strong>價格</strong>：旺季（暑假、春假）需提早預訂</li>
+          <li><strong>設施</strong>：房間大小、衛浴設備、Wi-Fi 品質</li>
+          <li><strong>評價</strong>：參考 Booking.com / Agoda 真實旅客評分</li>
+        </ul>
+
+        <blockquote>
+          建議至少提前 1-2 個月預訂，暑假與黃金週期間更要提早。
+          沖繩熱門飯店在旺季常常一房難求。
+        </blockquote>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

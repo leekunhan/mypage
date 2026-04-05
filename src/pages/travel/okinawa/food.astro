@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -14,7 +14,9 @@ const base = import.meta.env.BASE_URL;
         <span class="breadcrumb-separator">/</span>
         <a href={`${base}/travel`}>旅遊</a>
         <span class="breadcrumb-separator">/</span>
-        <span>沖繩美食</span>
+        <a href={`${base}/travel/okinawa`}>沖繩</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>美食</span>
       </nav>
 
       <header class="article-header">

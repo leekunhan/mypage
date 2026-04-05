@@ -1,5 +1,5 @@
 ---
-import BaseLayout from '../../layouts/BaseLayout.astro';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
 const base = import.meta.env.BASE_URL;
 ---
 
@@ -14,7 +14,9 @@ const base = import.meta.env.BASE_URL;
         <span class="breadcrumb-separator">/</span>
         <a href={`${base}/travel`}>旅遊</a>
         <span class="breadcrumb-separator">/</span>
-        <span>沖繩景點</span>
+        <a href={`${base}/travel/okinawa`}>沖繩</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>景點</span>
       </nav>
 
       <header class="article-header">
@@ -119,7 +121,6 @@ const base = import.meta.env.BASE_URL;
         <p>
           以美式風格為主題的大型娛樂購物區，彩虹摩天輪是地標。
           有時裝店、餐廳、電影院、露天廣場，白天夜晚都熱鬧。
-          Depot Island、Carnival Park 等子商圈值得慢逛。
         </p>
         <ul>
           <li><strong>地區</strong>：中部（北谷町）</li>
@@ -128,13 +129,8 @@ const base = import.meta.env.BASE_URL;
 
         <h3>9. 大型購物中心</h3>
         <p>
-          <strong>Aeon Mall Rycom</strong>（イオンモール沖縄ライカム）：
-          沖繩最大購物中心，美食廣場、各大品牌一應俱全。
-          雨天備案首選。
-        </p>
-        <p>
-          <strong>SAN-A Parco City</strong>：
-          那霸附近的大型購物中心，可找到許多日本限定商品。
+          <strong>Aeon Mall Rycom</strong>：沖繩最大購物中心，雨天備案首選。<br />
+          <strong>SAN-A Parco City</strong>：那霸附近，可找到許多日本限定商品。
         </p>
 
         <h3>10. 港川外人住宅（Minato-gawa Stateside Town）</h3>
@@ -148,22 +144,18 @@ const base = import.meta.env.BASE_URL;
 
         <h3>11. 那霸國際通（Kokusai Dori）</h3>
         <p>
-          那霸市最繁華的購物步行街，全長約 1.6 公里，兩側滿是紀念品店、
-          餐廳、居酒屋。DONKI（24 小時）、Calbee+、鹽屋等是必逛清單。
-          晚間充滿活力，適合最後一晚盡情購物。
+          那霸市最繁華的購物步行街，全長約 1.6 公里，兩側滿是紀念品店、餐廳、居酒屋。
+          DONKI（24 小時）、Calbee+、鹽屋等是必逛清單。
         </p>
         <ul>
           <li><strong>開放時間</strong>：多數店家 10:00 – 22:00，DONKI 24 小時</li>
           <li><strong>地區</strong>：南部（那霸市）</li>
         </ul>
 
-        <h2>🌸 其他推薦</h2>
-
         <h3>12. 宜野灣海濱公園（Ginowan Seaside Park）</h3>
         <p>
-          面海的市民公園，有沙灘、草坪與兒童設施，是沖繩人休閒的好去處。
-          每年夏季在此舉辦「琉球海炎祭」（Ryukyu Kaiensai）花火大會，
-          視覺壯觀且搭配音樂演出，是沖繩最大煙火盛事之一。
+          面海的市民公園，每年夏季舉辦「琉球海炎祭」花火大會，
+          是沖繩最大煙火盛事之一。
         </p>
         <ul>
           <li><strong>地區</strong>：中部（宜野灣市）</li>
@@ -171,10 +163,10 @@ const base = import.meta.env.BASE_URL;
 
         <h2>💡 旅遊小提醒</h2>
         <ul>
-          <li><strong>最佳季節</strong>：3-5 月（春）、9-11 月（秋）避開梅雨與颱風</li>
+          <li><strong>最佳季節</strong>：3-5 月（春）、9-11 月（秋）</li>
           <li><strong>交通</strong>：強烈建議租車自駕，大眾運輸覆蓋有限</li>
-          <li><strong>文化尊重</strong>：歷史遺跡請保持安靜，拍照前先確認是否允許</li>
-          <li><strong>駕照</strong>：需備妥國際駕照，記得帶台灣駕照正本與日語譯本</li>
+          <li><strong>文化尊重</strong>：歷史遺跡請保持安靜，拍照前確認是否允許</li>
+          <li><strong>駕照</strong>：需備妥國際駕照與台灣駕照正本及日語譯本</li>
         </ul>
       </div>
     </div>
