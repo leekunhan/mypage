@@ -1,0 +1,62 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import Card from '../../components/Card.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="潛水日記"
+  description="記錄水肺潛水與自由潛水的海底世界，分享潛點、裝備與心得。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>潛水日記</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🤿 潛水日記</h1>
+        <p class="section-subtitle">
+          潛入海洋，探索水面下那個安靜而神奇的世界。
+        </p>
+      </div>
+
+      <div class="card-grid">
+        <Card
+          href={`${base}/diving/scuba`}
+          title="🧜 水肺潛水"
+          description="背起氣瓶，深入海底探索珊瑚礁與海洋生物，記錄每次 Open Water 與 Advanced 潛水歷程。"
+        />
+        <Card
+          href={`${base}/diving/freediving`}
+          title="🌊 自由潛水"
+          description="只靠一口氣潛入深藍，追求平靜與身體極限的突破，記錄憋氣訓練與海訓心得。"
+        />
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container">
+      <div class="article-content">
+        <h2>關於潛水</h2>
+        <p>
+          潛水是一種能讓人完全沉浸在另一個世界的運動。無論是背著氣瓶的水肺潛水，
+          還是靠一口氣的自由潛水，每次下水都是一次與海洋的對話。
+        </p>
+        <h3>水肺潛水 vs 自由潛水</h3>
+        <ul>
+          <li><strong>水肺潛水（Scuba Diving）</strong>：使用水中呼吸器，可在水下停留較長時間，適合觀察海底生態與拍攝。</li>
+          <li><strong>自由潛水（Freediving）</strong>：不使用呼吸器，靠訓練延長閉氣時間，追求與海洋最直接的接觸感。</li>
+        </ul>
+        <h3>潛水資歷</h3>
+        <ul>
+          <li>🤿 水肺：PADI Open Water 認證</li>
+          <li>🌊 自由潛：持續訓練中</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

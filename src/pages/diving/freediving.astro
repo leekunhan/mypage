@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="自由潛水"
+  description="自由潛水日記：閉氣訓練、海訓心得、靜態 / 動態 / 深度紀錄與放鬆技巧分享。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/diving`}>潛水日記</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>自由潛水</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🌊 自由潛水</h1>
+        <p class="section-subtitle">
+          一口氣，一個深度，一份與海洋最純粹的連結。
+        </p>
+      </div>
+
+      <div class="article-content">
+
+        <h2>🪪 證照歷程</h2>
+        <p>目前持續訓練中，尚未取得證照。</p>
+
+        <h2>📊 個人最佳紀錄</h2>
+        <ul>
+          <li><strong>靜態閉氣（STA）</strong>：待補</li>
+          <li><strong>動態閉氣（DYN）</strong>：待補</li>
+          <li><strong>恆重下潛（CWT）</strong>：待補</li>
+        </ul>
+
+        <h2>🏋️ 訓練方式</h2>
+        <ul>
+          <li><strong>乾式訓練</strong>：瑜珈、橫膈膜伸展、靜態閉氣練習</li>
+          <li><strong>泳池訓練</strong>：動態閉氣、轉身技術</li>
+          <li><strong>海訓</strong>：待補地點與心得</li>
+        </ul>
+
+        <h2>🧘 放鬆技巧心得</h2>
+        <p>待補...</p>
+
+        <h2>📍 海訓地點</h2>
+        <p>尚未新增紀錄，敬請期待。</p>
+
+        <h2>💡 心得與體悟</h2>
+        <p>待補...</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>

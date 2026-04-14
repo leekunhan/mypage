@@ -11,6 +11,18 @@ function isActive(path: string): boolean {
 <nav class="main-nav" aria-label="Main navigation">
   <a href={`${base}/`} class:list={['nav-link', { active: isActive('/') }]}>首頁</a>
   <a href={`${base}/chatbot`} class:list={['nav-link', { active: isActive('/chatbot') }]}>Chatbot</a>
+  <a href={`${base}/cv`} class:list={['nav-link', { active: isActive('/cv') }]}>CV</a>
+  <a href={`${base}/finance`} class:list={['nav-link', { active: isActive('/finance') }]}>💰 財務</a>
+
+  <div class="nav-dropdown">
+    <a href={`${base}/diving`} class:list={['nav-link', { active: isActive('/diving') }]}>
+      潛水 ▾
+    </a>
+    <div class="nav-dropdown-content">
+      <a href={`${base}/diving/scuba`} class:list={['nav-dropdown-link', { active: isActive('/diving/scuba') }]}>🧜 水肺潛水</a>
+      <a href={`${base}/diving/freediving`} class:list={['nav-dropdown-link', { active: isActive('/diving/freediving') }]}>🌊 自由潛水</a>
+    </div>
+  </div>
 
   <div class="nav-dropdown">
     <a href={`${base}/travel`} class:list={['nav-link', { active: isActive('/travel') }]}>

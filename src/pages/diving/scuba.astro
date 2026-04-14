@@ -1,0 +1,54 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+const base = import.meta.env.BASE_URL;
+---
+
+<BaseLayout
+  title="水肺潛水"
+  description="水肺潛水日記：潛點紀錄、裝備分享、PADI 考照心得與每次下水的故事。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/diving`}>潛水日記</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>水肺潛水</span>
+      </nav>
+
+      <div class="section-header">
+        <h1>🧜 水肺潛水</h1>
+        <p class="section-subtitle">
+          背起氣瓶，深入海底，看見平時無緣見到的藍色世界。
+        </p>
+      </div>
+
+      <div class="article-content">
+
+        <h2>🪪 證照歷程</h2>
+        <ul>
+          <li><strong>PADI Open Water Diver</strong> — 待補入考照日期與地點</li>
+        </ul>
+
+        <h2>📍 潛點紀錄</h2>
+        <p>尚未新增潛點，敬請期待。</p>
+
+        <h2>🐠 印象深刻的海底生物</h2>
+        <p>待補...</p>
+
+        <h2>🪬 裝備筆記</h2>
+        <ul>
+          <li><strong>浮力調整裝置（BCD）</strong>：待補</li>
+          <li><strong>調節器</strong>：待補</li>
+          <li><strong>面鏡 / 蛙鞋</strong>：待補</li>
+          <li><strong>水下手電筒</strong>：待補</li>
+        </ul>
+
+        <h2>💡 新手心得</h2>
+        <p>待補...</p>
+
+      </div>
+    </div>
+  </section>
+</BaseLayout>
