@@ -5,7 +5,7 @@ import { useState, useEffect, useCallback } from "react";
 // SHA-256("finance") = eab762a...
 // 要換密碼：console.log(await crypto.subtle.digest('SHA-256', new TextEncoder().encode('你的密碼')).then(b=>[...new Uint8Array(b)].map(x=>x.toString(16).padStart(2,'0')).join('')))
 // ────────────────────────────────────────────
-const FINANCE_HASH = "eab762a03fd979a04cc4706e6536d382bc89d2d1356afcd054a16b2235ecd471";
+const FINANCE_HASH = "8b8f6254765a1fa60ff5bc7b6a9c7a1caf00b9fc9f1660331ac4b2a50e366ea2";
 
 function PasswordGate({ onUnlock }) {
   const [input, setInput] = useState("");
