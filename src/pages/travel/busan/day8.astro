@@ -1,0 +1,132 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/busan.css';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Day 8 · 回程 · 金海 → 桃園"
+  description="釜山 7 日 Day 8：金海機場 check in、機場退稅、CI 0191 10:30 起飛、回到桃園。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel/busan`}>釜山</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Day 8</span>
+      </nav>
+
+      <header class="busan-hero d8">
+        <div class="busan-hero-inner">
+          <span class="day-badge">DAY 8 · 6 / 23（一）</span>
+          <h1>回程 · <span class="accent">金海 → 桃園</span></h1>
+          <p class="subtitle">早起退房、搭利木津巴士到金海機場辦理 check in，用機場退稅機處理單據，<strong>CI 0191 10:30</strong> 起飛。下次再見，釜山。</p>
+          <div class="meta-pills">
+            <span>🛫 CI 0191</span>
+            <span>🕥 10:30 起飛</span>
+            <span>🇹🇼 11:55 抵桃園</span>
+            <span>💸 退稅</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="busan-section">
+        <h2>📋 今日行程</h2>
+        <ol class="timeline">
+          <li class="timeline-item transit">
+            <div class="num">1</div>
+            <div class="item-card">
+              <div class="time">07:30</div>
+              <div class="title">出發前往金海機場</div>
+              <p class="desc">從西面 / 南浦搭利木津巴士或 Uber 約 40–50 分鐘。建議多抓 30 分鐘 buffer 應付塞車。</p>
+              <div class="tags"><span class="tag">交通</span></div>
+            </div>
+          </li>
+          <li class="timeline-item transit">
+            <div class="num">2</div>
+            <div class="item-card">
+              <div class="time">08:30</div>
+              <div class="title">抵達金海機場 · 辦理 check in</div>
+              <p class="desc">先用<strong>機場退稅機</strong>處理單據，再 check in 行李、過海關。退稅機在出境大廳。</p>
+              <div class="tags"><span class="tag">退稅</span><span class="tag">check-in</span></div>
+            </div>
+          </li>
+          <li class="timeline-item must">
+            <div class="num">3</div>
+            <div class="item-card">
+              <div class="time">10:30</div>
+              <div class="title">CI 0191 起飛</div>
+              <p class="desc">中華航空 釜山金海 → 桃園。飛行時間約 2.5 小時。</p>
+              <div class="tags"><span class="tag">航班</span><span class="tag">CI 0191</span></div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="num">4</div>
+            <div class="item-card">
+              <div class="time">11:55</div>
+              <div class="title">抵達桃園機場 · 回家</div>
+              <p class="desc">入境、領行李、回家。釜山 7 天 6 夜行程結束！</p>
+              <div class="tags"><span class="tag">回家</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="busan-section">
+        <h2>💡 回程小提醒</h2>
+        <div class="warn-box">
+          <h4>⚠️ 機場退稅注意</h4>
+          <ul>
+            <li>退稅商品 <strong>不可</strong> 拆封，海關有權檢查</li>
+            <li>退稅單據要在 3 個月內帶離韓國</li>
+            <li>機場退稅機支援中文，刷護照 + 掃 QR 碼即可</li>
+            <li>滿 ₩30,000 才符合退稅資格</li>
+            <li>大筆退稅可能要走人工櫃台</li>
+          </ul>
+        </div>
+        <div class="tip-box">
+          <h4>機場 ↔ 市區交通</h4>
+          <ul>
+            <li><strong>利木津巴士</strong>：金海機場 ↔ 海雲台 / 西面 / 南浦，約 50–60 分鐘</li>
+            <li><strong>計程車 / Uber</strong>：到西面 / 南浦約 ₩30,000–40,000</li>
+            <li><strong>輕軌 + 地鐵</strong>：金海輕軌轉地鐵，便宜但較慢</li>
+          </ul>
+        </div>
+        <div class="tip-box">
+          <h4>機場 buffer 建議</h4>
+          <p>10:30 起飛 → 09:30 登機 → 09:00 過海關 → 08:30 退稅 + check in → <strong>08:00 抵達機場最保險</strong>。利木津巴士車程算 50 分鐘，<strong>07:00 上車</strong>剛好。</p>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>📝 行前 checklist 確認</h2>
+        <table class="tbl">
+          <thead><tr><th>項目</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>護照</td><td>隨身</td></tr>
+            <tr><td>登機證 / e-ticket</td><td>已辦 check in</td></tr>
+            <tr><td>所有退稅單據</td><td>放隨身包</td></tr>
+            <tr><td>未拆封退稅商品</td><td>放手提，過海關前可能抽查</td></tr>
+            <tr><td>韓圜現金 / WOWPASS</td><td>剩餘可在機場換回</td></tr>
+            <tr><td>充電線 / 行動電源</td><td>行動電源不可托運</td></tr>
+            <tr><td>液態物超 100ml</td><td>記得托運</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <nav class="day-nav">
+        <a href={`${base}/travel/busan/day7`}>
+          <div class="label">← DAY 7</div>
+          <div class="ttl">影島海景 + 採購收尾</div>
+        </a>
+        <a href={`${base}/travel/busan`} class="next">
+          <div class="label">總覽 →</div>
+          <div class="ttl">回到釜山首頁</div>
+        </a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

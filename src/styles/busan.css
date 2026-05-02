@@ -1,0 +1,449 @@
+/* ============================================
+   Busan trip pages — shared styles
+   adapts the sea-blue trip aesthetic into the
+   site's dark theme
+   ============================================ */
+
+:root {
+  --busan-deep: #0a3d62;
+  --busan-mid: #1565c0;
+  --busan-light: #4fc3f7;
+  --busan-foam: rgba(79, 195, 247, 0.18);
+  --busan-sunset: #ff7043;
+  --busan-mint: #4db6ac;
+  --busan-warn: #d32f2f;
+}
+
+/* ---------- Day-page hero ---------- */
+.busan-hero {
+  background: linear-gradient(135deg, var(--busan-deep) 0%, var(--busan-mid) 50%, var(--busan-light) 100%);
+  color: white;
+  padding: var(--space-12) 0 var(--space-16);
+  border-radius: var(--border-radius-lg);
+  margin-bottom: var(--space-8);
+  position: relative;
+  overflow: hidden;
+}
+.busan-hero::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image:
+    radial-gradient(circle at 80% 20%, rgba(255,255,255,0.08) 0%, transparent 40%),
+    radial-gradient(circle at 10% 90%, rgba(255,255,255,0.06) 0%, transparent 50%);
+  pointer-events: none;
+}
+.busan-hero-inner {
+  position: relative;
+  padding: 0 var(--space-8);
+  max-width: 900px;
+}
+.busan-hero h1 {
+  color: #fff;
+  font-size: var(--text-4xl);
+  margin-bottom: var(--space-3);
+  letter-spacing: -0.02em;
+}
+.busan-hero h1 .accent { color: var(--busan-sunset); }
+.busan-hero .day-badge {
+  display: inline-block;
+  background: rgba(255,255,255,0.18);
+  border: 1px solid rgba(255,255,255,0.28);
+  padding: 6px 14px;
+  border-radius: 999px;
+  font-size: var(--text-sm);
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: var(--space-4);
+}
+.busan-hero .subtitle {
+  font-size: var(--text-lg);
+  opacity: 0.95;
+  max-width: 720px;
+  margin-bottom: var(--space-6);
+}
+.busan-hero .meta-pills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-2);
+}
+.busan-hero .meta-pills span {
+  background: rgba(255,255,255,0.18);
+  padding: 6px 12px;
+  border-radius: 8px;
+  font-size: var(--text-sm);
+}
+
+/* Per-day hero variants */
+.busan-hero.d1 { background: linear-gradient(135deg, #0a3d62, #1565c0); }
+.busan-hero.d2 { background: linear-gradient(135deg, #1565c0, #4fc3f7); }
+.busan-hero.d3 { background: linear-gradient(135deg, #ff7043, #ffa726); }
+.busan-hero.d4 { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+.busan-hero.d5 { background: linear-gradient(135deg, #00838f, #4db6ac); }
+.busan-hero.d6 { background: linear-gradient(135deg, #c2185b, #ef5350); }
+.busan-hero.d7 { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
+.busan-hero.d8 { background: linear-gradient(135deg, #455a64, #78909c); }
+
+/* ---------- Stats row (overview) ---------- */
+.busan-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: var(--space-4);
+  margin-bottom: var(--space-8);
+}
+.busan-stat {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-6) var(--space-4);
+  text-align: center;
+}
+.busan-stat .num {
+  font-size: var(--text-3xl);
+  font-weight: 800;
+  color: var(--color-primary-light);
+  letter-spacing: -1px;
+  line-height: 1;
+}
+.busan-stat .lbl {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Day cards (overview) ---------- */
+.day-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: var(--space-6);
+  margin-bottom: var(--space-12);
+}
+.day-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  transition: all var(--transition-base);
+  color: var(--color-text);
+}
+.day-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--color-primary);
+  box-shadow: 0 12px 28px rgba(74, 144, 120, 0.18);
+}
+.day-card .day-banner {
+  height: 110px;
+  padding: var(--space-4) var(--space-6);
+  color: white;
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.day-card .day-banner::after {
+  content: "";
+  position: absolute;
+  right: -30px;
+  bottom: -30px;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  background: rgba(255,255,255,0.08);
+}
+.day-card .num-big {
+  font-size: 38px;
+  font-weight: 900;
+  line-height: 1;
+  letter-spacing: -2px;
+}
+.day-card .date {
+  font-size: var(--text-sm);
+  opacity: 0.92;
+  font-weight: 600;
+}
+.day-card .day-content {
+  padding: var(--space-4) var(--space-6) var(--space-6);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  flex: 1;
+}
+.day-card h3 {
+  margin: 0;
+  font-size: var(--text-lg);
+  color: var(--color-text-heading);
+}
+.day-card p {
+  margin: 0;
+  color: var(--color-text-muted);
+  font-size: var(--text-sm);
+  flex: 1;
+}
+.day-card .cta {
+  margin-top: var(--space-2);
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--color-primary-light);
+}
+.day-card.d1 .day-banner { background: linear-gradient(135deg, #0a3d62, #1565c0); }
+.day-card.d2 .day-banner { background: linear-gradient(135deg, #1565c0, #4fc3f7); }
+.day-card.d3 .day-banner { background: linear-gradient(135deg, #ff7043, #ffa726); }
+.day-card.d4 .day-banner { background: linear-gradient(135deg, #6a1b9a, #ab47bc); }
+.day-card.d5 .day-banner { background: linear-gradient(135deg, #00838f, #4db6ac); }
+.day-card.d6 .day-banner { background: linear-gradient(135deg, #c2185b, #ef5350); }
+.day-card.d7 .day-banner { background: linear-gradient(135deg, #2e7d32, #66bb6a); }
+.day-card.d8 .day-banner { background: linear-gradient(135deg, #455a64, #78909c); }
+
+/* ---------- Section block ---------- */
+.busan-section {
+  margin-bottom: var(--space-12);
+}
+.busan-section h2 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-size: var(--text-2xl);
+  margin-bottom: var(--space-6);
+  color: var(--color-text-heading);
+}
+.busan-section h2::before {
+  content: "";
+  width: 4px;
+  height: 22px;
+  background: var(--busan-sunset);
+  border-radius: 2px;
+}
+.busan-section h3 {
+  font-size: var(--text-xl);
+  margin: var(--space-6) 0 var(--space-3);
+  color: var(--color-text-heading);
+}
+
+/* ---------- Timeline ---------- */
+.timeline {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  position: relative;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 16px;
+  top: 16px;
+  bottom: 16px;
+  width: 2px;
+  background: var(--color-border-hover);
+}
+.timeline-item {
+  position: relative;
+  padding: 0 0 var(--space-6) 56px;
+}
+.timeline-item:last-child { padding-bottom: 0; }
+.timeline-item .num {
+  position: absolute;
+  left: 0;
+  top: 4px;
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+  background: var(--color-bg);
+  border: 2px solid var(--busan-mid);
+  color: var(--busan-light);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 13px;
+  z-index: 1;
+}
+.timeline-item.food .num { border-color: var(--busan-sunset); color: var(--busan-sunset); }
+.timeline-item.shop .num { border-color: var(--busan-mint); color: var(--busan-mint); }
+.timeline-item.transit .num { border-color: var(--color-text-muted); color: var(--color-text-muted); }
+.timeline-item.must .num { border-color: var(--busan-warn); color: var(--busan-warn); }
+
+.timeline-item .item-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-4) var(--space-6);
+}
+.timeline-item .time {
+  font-weight: 700;
+  font-size: var(--text-sm);
+  color: var(--busan-light);
+  letter-spacing: 0.5px;
+}
+.timeline-item.food .time { color: var(--busan-sunset); }
+.timeline-item.shop .time { color: var(--busan-mint); }
+.timeline-item.must .time { color: var(--busan-warn); }
+.timeline-item .title {
+  font-size: var(--text-lg);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin: 2px 0 6px;
+}
+.timeline-item .title .star { color: var(--busan-sunset); margin-left: 4px; }
+.timeline-item .desc {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+  margin: 0;
+  line-height: 1.6;
+}
+.timeline-item .desc strong { color: var(--color-text); }
+.timeline-item .desc a { color: var(--color-primary-light); }
+.timeline-item .tags {
+  margin-top: var(--space-2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+}
+.timeline-item .tag {
+  font-size: 11px;
+  padding: 2px 8px;
+  border-radius: 999px;
+  background: var(--busan-foam);
+  color: var(--busan-light);
+  font-weight: 600;
+}
+.timeline-item .tag.warn {
+  background: rgba(232, 185, 69, 0.15);
+  color: var(--color-accent);
+}
+
+/* ---------- Tip / Warn boxes ---------- */
+.tip-box {
+  border-left: 4px solid var(--busan-sunset);
+  background: rgba(255, 112, 67, 0.08);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin: var(--space-3) 0;
+  color: var(--color-text);
+}
+.tip-box h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+  color: var(--busan-sunset);
+}
+.tip-box p, .tip-box ul {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.tip-box ul { padding-left: 20px; }
+.tip-box a { color: var(--color-primary-light); }
+
+.warn-box {
+  border-left: 4px solid var(--busan-warn);
+  background: rgba(211, 47, 47, 0.1);
+  padding: var(--space-4) var(--space-6);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+  margin: var(--space-3) 0;
+  color: var(--color-text);
+}
+.warn-box h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+  color: #ef5350;
+}
+.warn-box p, .warn-box ul {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text);
+}
+.warn-box ul { padding-left: 20px; }
+.warn-box a { color: var(--color-primary-light); }
+
+/* ---------- Tables ---------- */
+.tbl {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  font-size: var(--text-sm);
+  margin: var(--space-4) 0;
+}
+.tbl th, .tbl td {
+  padding: 10px 14px;
+  text-align: left;
+  border-bottom: 1px solid var(--color-border);
+}
+.tbl th {
+  background: var(--color-bg-secondary);
+  color: var(--color-primary-light);
+  font-weight: 700;
+}
+.tbl tr:last-child td { border-bottom: none; }
+.tbl tr:hover { background: rgba(74, 144, 120, 0.06); }
+.tbl a { color: var(--color-primary-light); }
+
+/* ---------- Info card grid ---------- */
+.busan-info-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  gap: var(--space-4);
+}
+.busan-info-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-4) var(--space-6);
+}
+.busan-info-card h4 {
+  margin: 0 0 var(--space-2);
+  font-size: var(--text-base);
+  color: var(--color-primary-light);
+}
+.busan-info-card p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
+/* ---------- Day pagination footer ---------- */
+.day-nav {
+  margin-top: var(--space-12);
+  padding-top: var(--space-6);
+  border-top: 1px solid var(--color-border);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-4);
+}
+.day-nav a {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+  padding: var(--space-4) var(--space-6);
+  display: block;
+  transition: all var(--transition-base);
+  color: var(--color-text);
+}
+.day-nav a:hover {
+  border-color: var(--color-primary);
+  transform: translateY(-2px);
+}
+.day-nav .label {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+.day-nav .ttl {
+  font-size: var(--text-base);
+  font-weight: 700;
+  color: var(--color-text-heading);
+  margin-top: 4px;
+}
+.day-nav .next { text-align: right; }
+
+@media (max-width: 640px) {
+  .busan-hero h1 { font-size: var(--text-3xl); }
+  .busan-hero .subtitle { font-size: var(--text-base); }
+  .day-nav { grid-template-columns: 1fr; }
+}

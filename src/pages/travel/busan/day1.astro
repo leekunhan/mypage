@@ -1,0 +1,120 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/busan.css';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Day 1 · 抵達 → 海雲台"
+  description="釜山 7 日 Day 1：抵達金海機場、松亭 3 代豬肉湯飯、海雲台海邊散步、廣安里夜景。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel/busan`}>釜山</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Day 1</span>
+      </nav>
+
+      <header class="busan-hero d1">
+        <div class="busan-hero-inner">
+          <span class="day-badge">DAY 1 · 6 / 16（一）</span>
+          <h1>抵達日 · <span class="accent">海雲台</span> 報到</h1>
+          <p class="subtitle">早班機落地，先去 <strong>松亭 3 代</strong> 吃第一碗豬肉湯飯，再到海雲台海邊散步、廣安里看夜景。今天輕鬆排，調時差。</p>
+          <div class="meta-pills">
+            <span>🛬 09:30 抵達金海</span>
+            <span>🚌 利木津巴士 → 海雲台</span>
+            <span>🌅 廣安大橋夜景</span>
+            <span>📍 5 個停留點</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="busan-section">
+        <h2>📋 今日行程</h2>
+        <ol class="timeline">
+          <li class="timeline-item transit">
+            <div class="num">1</div>
+            <div class="item-card">
+              <div class="time">09:30</div>
+              <div class="title">抵達金海機場</div>
+              <p class="desc">入境後領取 WOWPASS / 換匯，準備搭利木津巴士進市區。</p>
+              <div class="tags"><span class="tag">交通</span><span class="tag">入境</span></div>
+            </div>
+          </li>
+          <li class="timeline-item transit">
+            <div class="num">·</div>
+            <div class="item-card">
+              <div class="time">10:30</div>
+              <div class="title">利木津巴士 → 海雲台</div>
+              <p class="desc">約 50 分鐘車程，抵達海雲台後到飯店寄放行李（check in 通常 15:00 後）。</p>
+              <div class="tags"><span class="tag">交通</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food must">
+            <div class="num">2</div>
+            <div class="item-card">
+              <div class="time">13:00</div>
+              <div class="title">松亭 3 代豬肉湯飯（西面總店）<span class="star">⭐</span></div>
+              <p class="desc">釜山必吃第一站。西面總店是 24 小時老字號，米飯與骨湯分開上桌，自己調味。地點剛好在金海到海雲台途中。</p>
+              <div class="tags"><span class="tag">美食</span><span class="tag">必吃</span><span class="tag">午餐</span></div>
+            </div>
+          </li>
+          <li class="timeline-item">
+            <div class="num">3</div>
+            <div class="item-card">
+              <div class="time">15:00</div>
+              <div class="title">海雲台海水浴場散步</div>
+              <p class="desc">釜山的招牌沙灘，遠望可看到廣安大橋。輕鬆走走，順便對一下明天的天空膠囊列車起點位置。</p>
+              <div class="tags"><span class="tag">景點</span><span class="tag">海景</span></div>
+            </div>
+          </li>
+          <li class="timeline-item transit">
+            <div class="num">4</div>
+            <div class="item-card">
+              <div class="time">17:00</div>
+              <div class="title">飯店 check in / 休息</div>
+              <p class="desc">回飯店放行李、洗澡、補眠調時差，準備晚上的夜景行程。</p>
+              <div class="tags"><span class="tag">休息</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food">
+            <div class="num">5</div>
+            <div class="item-card">
+              <div class="time">19:00</div>
+              <div class="title">廣安里海灘晚餐 + 廣安大橋夜景</div>
+              <p class="desc">沿海灘走，挑一間海景餐廳吃晚餐。週六晚 20:00 有水舞煙火秀（這天是週一沒有），但夜景仍美。</p>
+              <div class="tags"><span class="tag">美食</span><span class="tag">夜景</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="busan-section">
+        <h2>💡 今日小提醒</h2>
+        <div class="tip-box">
+          <h4>第一天節奏放慢</h4>
+          <p>長榮 06:15 出發很早，落地後容易疲累。今天景點不多是刻意安排，把體力留給後面 6 天。</p>
+        </div>
+        <div class="warn-box">
+          <h4>⚠️ 抵達後第一件事</h4>
+          <p>機場領 WOWPASS（一張卡解決換匯 + 交通 + 信用卡功能），順便買利木津巴士票。Naver Map / KakaoTaxi / Papago 開好 GPS 權限。</p>
+        </div>
+      </section>
+
+      <nav class="day-nav">
+        <a href={`${base}/travel/busan`}>
+          <div class="label">← BACK</div>
+          <div class="ttl">回到總覽</div>
+        </a>
+        <a href={`${base}/travel/busan/day2`} class="next">
+          <div class="label">DAY 2 →</div>
+          <div class="ttl">海雲台藍線 · 天空膠囊夕陽場</div>
+        </a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

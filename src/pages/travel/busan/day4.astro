@@ -1,0 +1,117 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/busan.css';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Day 4 · 韓劇取景 + ARTE + 汗蒸幕"
+  description="釜山 7 日 Day 4：凡一洞 252 番地、米其林平壤冷麵、ARTE MUSEUM、海雲台市場小吃、Club D Oasis 海景汗蒸幕。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel/busan`}>釜山</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Day 4</span>
+      </nav>
+
+      <header class="busan-hero d4">
+        <div class="busan-hero-inner">
+          <span class="day-badge">DAY 4 · 6 / 19（四）</span>
+          <h1>韓劇取景 + 米其林冷麵 + <span class="accent">海景汗蒸幕</span></h1>
+          <p class="subtitle">早上去《苦盡柑來遇見你》取景地拍照、午餐吃米其林平壤冷麵、下午沉浸式光影展，晚上海雲台市場掃小吃、最後到 LCT 的 <strong>Club D Oasis</strong> 看海泡湯。</p>
+          <div class="meta-pills">
+            <span>🎬 252 番地</span>
+            <span>🍜 米其林冷麵</span>
+            <span>✨ ARTE MUSEUM</span>
+            <span>♨️ Club D Oasis</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="busan-section">
+        <h2>📋 今日行程</h2>
+        <ol class="timeline">
+          <li class="timeline-item">
+            <div class="num">1</div>
+            <div class="item-card">
+              <div class="time">10:00</div>
+              <div class="title">凡一洞 252 番地（《苦盡柑來遇見你》取景地）</div>
+              <p class="desc">釜山的老巷弄，韓劇場景常用。慢慢走、隨手拍。</p>
+              <div class="tags"><span class="tag">韓劇</span><span class="tag">拍照</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food">
+            <div class="num">2</div>
+            <div class="item-card">
+              <div class="time">12:30</div>
+              <div class="title">伯逸平冷 백일평냉（午餐）</div>
+              <p class="desc">米其林指南推薦的<strong>平壤冷麵</strong>。湯頭清而不寡，麵條 Q 韌，夏天吃最對味。</p>
+              <div class="tags"><span class="tag">美食</span><span class="tag">米其林</span><span class="tag">冷麵</span></div>
+            </div>
+          </li>
+          <li class="timeline-item must">
+            <div class="num">3</div>
+            <div class="item-card">
+              <div class="time">15:00</div>
+              <div class="title">ARTE MUSEUM Busan ⭐</div>
+              <p class="desc">沉浸式光影展，IG 必拍。<strong>線上預約有早鳥折扣</strong>，Visit Busan Pass 含。</p>
+              <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必拍</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food">
+            <div class="num">4</div>
+            <div class="item-card">
+              <div class="time">17:30</div>
+              <div class="title">海雲台市場 小吃巡禮（晚餐）</div>
+              <p class="desc">一站式吃透：<strong>相國家飯捲</strong> + <strong>春夏秋冬小麥冷麵</strong> + <strong>古來思魚糕</strong> + <strong>名品糖餅</strong>。慢慢走、慢慢吃。</p>
+              <div class="tags"><span class="tag">美食</span><span class="tag">市場</span><span class="tag">小吃</span></div>
+            </div>
+          </li>
+          <li class="timeline-item must">
+            <div class="num">5</div>
+            <div class="item-card">
+              <div class="time">19:30</div>
+              <div class="title">Club D Oasis 海景汗蒸幕 ⭐</div>
+              <p class="desc">蔡阿嘎員旅同款；海雲台 LCT 大樓 5–6F；<strong>Visit Busan Pass 可免費 4 小時</strong>，含蒸氣房 + 溫泉 + 足浴；超時每小時加 ₩10,000；無邊際泳池看海雲台夜景超讚。</p>
+              <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必去</span><span class="tag">夜景</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="busan-section">
+        <h2>💡 今日小提醒</h2>
+        <div class="warn-box">
+          <h4>⚠️ Club D Oasis Clean Day</h4>
+          <p><strong>每週二 Clean Day 提早結束營業</strong>，已避開（今天是週四）。<br />
+          通行證含 4 小時汗蒸幕（不含水上樂園），超時 ₩10,000/hr。記得帶換洗衣物 + 拖鞋（也可現場買）。</p>
+        </div>
+        <div class="tip-box">
+          <h4>海雲台市場小吃路線</h4>
+          <ul>
+            <li>從市場入口開始：先<strong>相國家飯捲</strong>當開胃菜</li>
+            <li>沿路吃<strong>名品糖餅</strong>（韓國特有的核桃糖餅）</li>
+            <li>走到中段試<strong>古來思魚糕</strong>（外帶當伴手禮也 OK）</li>
+            <li>最後吃一碗<strong>春夏秋冬小麥冷麵</strong>收尾</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="day-nav">
+        <a href={`${base}/travel/busan/day3`}>
+          <div class="label">← DAY 3</div>
+          <div class="ttl">東釜山 · 龍宮寺 + 樂天 + 帝王蟹</div>
+        </a>
+        <a href={`${base}/travel/busan/day5`} class="next">
+          <div class="label">DAY 5 →</div>
+          <div class="ttl">Outlet 血拼日 · 移動到西面</div>
+        </a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

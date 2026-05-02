@@ -1,0 +1,158 @@
+---
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/busan.css';
+const base = import.meta.env.BASE_URL;
+---
+<BaseLayout
+  title="Day 5 · Outlet 血拼日 + 移動西面"
+  description="釜山 7 日 Day 5：樂天 Outlet 東釜山店 7 大品牌掃貨、移動到西面、味贊王鹽烤肉。"
+>
+  <section class="page-content">
+    <div class="container">
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href={base}>首頁</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel`}>旅遊</a>
+        <span class="breadcrumb-separator">/</span>
+        <a href={`${base}/travel/busan`}>釜山</a>
+        <span class="breadcrumb-separator">/</span>
+        <span>Day 5</span>
+      </nav>
+
+      <header class="busan-hero d5">
+        <div class="busan-hero-inner">
+          <span class="day-badge">DAY 5 · 6 / 20（五）</span>
+          <h1>Outlet 血拼日 · <span class="accent">海雲台 → 西面</span></h1>
+          <p class="subtitle">整天泡在<strong>樂天 Outlet 東釜山店</strong>（550+ 品牌），重點掃 Snow Peak / Mont-bell / North Face / NB / Hazzys / Kodak / National Geographic。傍晚搭東海線到西面 check in，晚餐<strong>味贊王鹽烤肉</strong>。</p>
+          <div class="meta-pills">
+            <span>🛍 7 大必掃品牌</span>
+            <span>🏷 Mont-bell 3 折</span>
+            <span>🔄 移動到西面</span>
+            <span>🥩 鹽烤肉</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="busan-section">
+        <h2>📋 今日行程</h2>
+        <ol class="timeline">
+          <li class="timeline-item transit">
+            <div class="num">1</div>
+            <div class="item-card">
+              <div class="time">早上</div>
+              <div class="title">海雲台 check out → 行李寄存</div>
+              <p class="desc">行李寄飯店或直接拖到 Outlet 寄物櫃（Outlet 內有櫃可寄），晚點搭東海線到西面再領回飯店。</p>
+              <div class="tags"><span class="tag">交通</span><span class="tag">寄物</span></div>
+            </div>
+          </li>
+          <li class="timeline-item shop must">
+            <div class="num">2</div>
+            <div class="item-card">
+              <div class="time">10:30</div>
+              <div class="title">樂天名牌折扣 Outlets 東釜山店 ⭐</div>
+              <p class="desc">韓國規模最大 Outlet 之一，<strong>550+ 品牌</strong>。建議今天整天 Outlet（4 小時逛不完）。樂天世界已 Day 3 玩過。</p>
+              <div class="tags"><span class="tag">必逛</span><span class="tag">血拼主場</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food">
+            <div class="num">3</div>
+            <div class="item-card">
+              <div class="time">13:00</div>
+              <div class="title">Outlet 內午餐</div>
+              <p class="desc">3F 美食街便宜選擇多。吃完繼續逛 1F 戶外服飾區（Snow Peak / Mont-bell / North Face）。</p>
+              <div class="tags"><span class="tag">午餐</span><span class="tag">便利</span></div>
+            </div>
+          </li>
+          <li class="timeline-item shop">
+            <div class="num">4</div>
+            <div class="item-card">
+              <div class="time">16:00</div>
+              <div class="title">樂天百貨本館（東釜山）+ 樂天超市</div>
+              <p class="desc">跟 Outlet 同園區。本館多<strong>韓國設計品牌</strong>，超市買伴手禮零食（蜂蜜奶油薯片、HBAF 杏仁果、燒酒等）。</p>
+              <div class="tags"><span class="tag">百貨</span><span class="tag">伴手禮</span></div>
+            </div>
+          </li>
+          <li class="timeline-item transit">
+            <div class="num">5</div>
+            <div class="item-card">
+              <div class="time">18:30</div>
+              <div class="title">搭東海線 → 西面</div>
+              <p class="desc">從奧西利亞站到西面約 40 分鐘。或叫 Uber，奧西利亞 → 西面飯店約 ₩30,000。</p>
+              <div class="tags"><span class="tag">交通</span></div>
+            </div>
+          </li>
+          <li class="timeline-item transit">
+            <div class="num">6</div>
+            <div class="item-card">
+              <div class="time">19:30</div>
+              <div class="title">西面飯店 check in</div>
+              <p class="desc">放下行李、稍微整理，準備吃西面在地烤肉。</p>
+              <div class="tags"><span class="tag">住宿</span></div>
+            </div>
+          </li>
+          <li class="timeline-item food must">
+            <div class="num">7</div>
+            <div class="item-card">
+              <div class="time">20:00</div>
+              <div class="title">味贊王鹽烤肉 西面店 ⭐</div>
+              <p class="desc">西面在地人氣鹽烤肉。<br />
+              地址：釜山鎮區中央大路 691 街 24-3 ／ 11:30–23:00 ／ 無公休</p>
+              <div class="tags"><span class="tag">必吃</span><span class="tag">烤肉</span><span class="tag">指定</span></div>
+            </div>
+          </li>
+        </ol>
+      </section>
+
+      <section class="busan-section">
+        <h2>🛍 你必買清單在 Outlet 對照表</h2>
+        <table class="tbl">
+          <thead><tr><th>品牌</th><th>樓層</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>Snow Peak</td><td>1F 運動戶外區</td><td>韓製版超划算，網友買到薄外套有特價</td></tr>
+            <tr><td>⭐ Mont-bell</td><td>1F 運動戶外區</td><td><strong>網友實測買到 3 折</strong>，外套約 NT$ 1,200</td></tr>
+            <tr><td>The North Face</td><td>1F 運動戶外區</td><td>戶外服飾常 5–7 折</td></tr>
+            <tr><td>New Balance</td><td>1F 運動鞋區</td><td>韓國限定款台灣難買</td></tr>
+            <tr><td>Hazzys 英倫獵犬</td><td>1F 海外時裝</td><td>韓國原廠價比台灣便宜很多</td></tr>
+            <tr><td>Kodak</td><td>1F / 2F 年輕時尚</td><td>韓國潮服版型</td></tr>
+            <tr><td>National Geographic</td><td>1F / 2F 年輕時尚</td><td>韓國潮版，台灣較少通路</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="busan-section">
+        <h2>💡 今日小提醒</h2>
+        <div class="tip-box">
+          <h4>App 查詢神器</h4>
+          <p>下載「樂天 Outlet」App（有繁中），輸入品牌名查樓層位置；現場用 Naver Map 導航最準。</p>
+        </div>
+        <div class="tip-box">
+          <h4>💸 退稅</h4>
+          <p>Outlet 2F 中央有「Tax Refund Counter」可現場退稅，記得帶<strong>護照</strong>、消費滿 ₩30,000 以上單據。</p>
+        </div>
+        <div class="warn-box">
+          <h4>⚠️ 行李寄存提醒</h4>
+          <p>Outlet 內有寄物櫃，但容量有限。如果行李太多，建議直接 Uber/KakaoTaxi 把行李拖到西面飯店寄存，再自己搭東海線到 Outlet。</p>
+        </div>
+        <div class="tip-box">
+          <h4>🚇 交通</h4>
+          <ul>
+            <li>從海雲台：地鐵 2 號線 → BEXCO 站 → 轉東海線到<strong>奧西利亞站（OSIRIA）</strong>1 號出口走 10 分鐘</li>
+            <li>或搭 1001 / 100 / 181 公車從海雲台直達，約 40 分鐘</li>
+            <li>Uber 目的地填：롯데프리미엄아울렛 동부산점</li>
+          </ul>
+        </div>
+      </section>
+
+      <nav class="day-nav">
+        <a href={`${base}/travel/busan/day4`}>
+          <div class="label">← DAY 4</div>
+          <div class="ttl">韓劇 + ARTE + 汗蒸幕</div>
+        </a>
+        <a href={`${base}/travel/busan/day6`} class="next">
+          <div class="label">DAY 6 →</div>
+          <div class="ttl">甘川洞 + 札嘎其 + KPOP FRIENDS</div>
+        </a>
+      </nav>
+    </div>
+  </section>
+</BaseLayout>

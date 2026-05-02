@@ -1,8 +1,23 @@
 ---
 import BaseLayout from '../../../layouts/BaseLayout.astro';
+import '../../../styles/busan.css';
 const base = import.meta.env.BASE_URL;
+
+const days = [
+  { n: 1, date: '6/16（一）· 抵達日', title: '抵達 → 海雲台', desc: '金海機場入境，首戰豬肉湯飯，傍晚廣安里看海。' },
+  { n: 2, date: '6/17（二）· 海雲台藍線', title: '天空膠囊夕陽場', desc: 'X The Sky 100 樓 + 尾浦→青沙浦膠囊列車 + 廣安木熟成肉。' },
+  { n: 3, date: '6/18（三）· 東釜山玩樂日', title: '龍宮寺 + 樂天 + 帝王蟹', desc: '海邊佛寺、Skyline Luge、機張市場 1.5–2kg 帝王蟹。' },
+  { n: 4, date: '6/19（四）· 韓劇 + 汗蒸幕', title: '252 番地 + ARTE + Club D Oasis', desc: '苦盡柑來取景地、米其林冷麵、海景汗蒸幕。' },
+  { n: 5, date: '6/20（五）· Outlet 血拼', title: '東釜山 Outlet → 移動西面', desc: '樂天 Outlet 7 大品牌掃貨，晚上味贊王鹽烤肉。' },
+  { n: 6, date: '6/21（六）· 老城追星', title: '甘川洞 + 札嘎其 + KPOP FRIENDS', desc: '釜山小聖托里尼、GD 周邊、新世界百貨 Centum City。' },
+  { n: 7, date: '6/22（日）· 影島收尾', title: '白淺灘 + 松島纜車', desc: '影島海景咖啡、水晶纜車、最後一碗豬肉湯飯。' },
+  { n: 8, date: '6/23（一）· 回程', title: '金海機場 → 桃園', desc: 'CI 0191，10:30 起飛，11:55 落地。' },
+];
 ---
-<BaseLayout title="釜山旅遊指南" description="釜山旅遊攻略：海雲台、甘川洞文化村、西面美食街與海鮮市場，韓國港口城市完整導覽。">
+<BaseLayout
+  title="釜山 7 天 6 夜旅遊指南"
+  description="2026 年 6 月釜山自由行完整攻略：海雲台、機張、西面、南浦完整路線，含每日地圖、票券、預算、購物清單。"
+>
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -12,13 +27,226 @@ const base = import.meta.env.BASE_URL;
         <span class="breadcrumb-separator">/</span>
         <span>釜山</span>
       </nav>
-      <div class="section-header">
-        <h1>🌊 釜山旅遊指南</h1>
-        <p class="section-subtitle">韓國第二大城，海鮮、彩色山城與絕美海灘的完美組合。</p>
-      </div>
-      <div class="article-content">
-        <p>內容整理中，敬請期待！</p>
-      </div>
+
+      <header class="busan-hero">
+        <div class="busan-hero-inner">
+          <span class="day-badge">2026 / 06 / 16 — 06 / 23</span>
+          <h1>釜山 7 天 6 夜<br /><span class="accent">海雲台 · 機張 · 西面 · 南浦</span></h1>
+          <p class="subtitle">夫妻自由行 — 海景 + 美食 + 購物全方位行程，前 4 夜駐紮海雲台、後 2 夜移到西面 / 南浦。</p>
+          <div class="meta-pills">
+            <span>👥 2 人</span>
+            <span>🛫 CI 0190 / 0191</span>
+            <span>🌧️ 6 月梅雨季</span>
+            <span>🌡️ 20–25°C</span>
+            <span>💸 預算 NT$ 65,000–93,000（不含購物）</span>
+          </div>
+        </div>
+      </header>
+
+      <section class="busan-section">
+        <h2>📊 旅程一覽</h2>
+        <div class="busan-stats">
+          <div class="busan-stat"><div class="num">8</div><div class="lbl">天數（含去回程）</div></div>
+          <div class="busan-stat"><div class="num">6</div><div class="lbl">夜晚住宿</div></div>
+          <div class="busan-stat"><div class="num">35+</div><div class="lbl">景點與店家</div></div>
+          <div class="busan-stat"><div class="num">5</div><div class="lbl">必吃豬肉湯飯</div></div>
+          <div class="busan-stat"><div class="num">7</div><div class="lbl">必掃 Outlet 品牌</div></div>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>🗓 每日重點</h2>
+        <div class="day-cards">
+          {days.map((d) => (
+            <a href={`${base}/travel/busan/day${d.n}`} class={`day-card d${d.n}`}>
+              <div class="day-banner">
+                <div class="num-big">D{d.n}</div>
+                <div class="date">{d.date}</div>
+              </div>
+              <div class="day-content">
+                <h3>{d.title}</h3>
+                <p>{d.desc}</p>
+                <div class="cta">查看當日行程 →</div>
+              </div>
+            </a>
+          ))}
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>✈️ 航班</h2>
+        <table class="tbl">
+          <thead>
+            <tr><th>日期</th><th>航班</th><th>時間</th><th>路線</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>6/16（一）</td><td>CI 0190</td><td>06:15 → 09:30</td><td>桃園 → 釜山金海</td></tr>
+            <tr><td>6/23（一）</td><td>CI 0191</td><td>10:30 → 11:55</td><td>釜山金海 → 桃園</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="busan-section">
+        <h2>🎫 出發前必做 — 票券預訂</h2>
+        <div class="tip-box">
+          <h4>強烈建議先訂的票券</h4>
+          <ul>
+            <li><strong>天空膠囊列車 夕陽場（17:00–18:00）</strong>—— 至少提前 1–2 週訂，⚠️ <em>不在通行證內</em>，要單獨買</li>
+            <li><strong>機場利木津巴士</strong> 或機場接送</li>
+            <li><strong>Visit Busan Pass Big 5 電子版</strong>（詳見下方表格）</li>
+            <li><strong>ARTE MUSEUM Busan</strong> 線上預約有早鳥折扣（已含在 Big 5 建議組合內）</li>
+          </ul>
+        </div>
+
+        <h3>Visit Busan Pass — Big 5 電子版建議組合</h3>
+        <table class="tbl">
+          <thead>
+            <tr><th>景點（兌換）</th><th>區域</th><th>原價</th><th>排哪天</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Skyline Luge（紫 A）</td><td>機張</td><td>₩31,000</td><td><a href={`${base}/travel/busan/day3`}>Day 3</a></td></tr>
+            <tr><td>釜山樂天世界（紫 A）</td><td>機張</td><td>₩49,000</td><td><a href={`${base}/travel/busan/day3`}>Day 3</a></td></tr>
+            <tr><td>⭐ Club D Oasis 汗蒸幕（藍 B）</td><td>海雲台</td><td>₩30,000</td><td><a href={`${base}/travel/busan/day4`}>Day 4 晚</a></td></tr>
+            <tr><td>ARTE MUSEUM（藍 B）</td><td>影島</td><td>₩17,000</td><td><a href={`${base}/travel/busan/day4`}>Day 4</a></td></tr>
+            <tr><td>松島海上纜車（藍 B）</td><td>影島</td><td>₩17,000</td><td><a href={`${base}/travel/busan/day7`}>Day 7</a></td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box">
+          <p><strong>合計原價 ₩144,000，Big 5 只要 ₩65,000</strong>，每人省 ₩79,000（約 NT$ 1,740）⭐</p>
+          <ul>
+            <li>規則：選 2 個紫色 + 3 個藍色景點，180 天內任意使用</li>
+            <li>海岸列車（₩7,000）改自己單買就好，不要佔 Big 5 名額</li>
+            <li>在 Klook / KKday 買常有 94 折優惠碼，比官網便宜</li>
+            <li>兌換時要 App QR Code + 護照正本</li>
+          </ul>
+        </div>
+        <div class="warn-box">
+          <h4>⚠️ 通行證使用注意</h4>
+          <p><strong>電子版只能用 App QR Code</strong>（手機要連網，截圖/紙本無效）。<br />
+          Club D Oasis 含 4 小時汗蒸幕（不含水上樂園）；<strong>週二 Clean Day 提早結束</strong>，已避開。<br />
+          實體卡自 2026/2 起停售。</p>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>📱 必備 App</h2>
+        <div class="busan-info-grid">
+          <div class="busan-info-card"><h4>Naver Map</h4><p>韓國 Google Map 不太準，導航用 Naver。</p></div>
+          <div class="busan-info-card"><h4>KakaoTaxi</h4><p>韓國最普及的叫車 App。</p></div>
+          <div class="busan-info-card"><h4>Papago</h4><p>韓中翻譯，相機翻譯特別好用。</p></div>
+          <div class="busan-info-card"><h4>WOWPASS</h4><p>換匯 + 預付交通卡 + 信用卡功能三合一。</p></div>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>🏨 住宿</h2>
+        <div class="busan-info-grid">
+          <div class="busan-info-card">
+            <h4>前 4 夜（6/16–6/19）海雲台區</h4>
+            <p>推薦海雲台站或中洞站附近，方便走到天空膠囊列車和海里丹路。</p>
+          </div>
+          <div class="busan-info-card">
+            <h4>後 2 夜（6/20–6/22）西面 / 南浦洞</h4>
+            <p>西面交通樞紐方便購物，南浦洞離機場較遠但古典味濃。</p>
+          </div>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>💰 預算粗估（兩人總計）</h2>
+        <table class="tbl">
+          <thead><tr><th>項目</th><th>預估</th><th>備註</th></tr></thead>
+          <tbody>
+            <tr><td>住宿（6 晚）</td><td>NT$ 30,000–45,000</td><td>中等飯店每晚 5–8,000 元</td></tr>
+            <tr><td>餐飲</td><td>NT$ 18,000–25,000</td><td>一天約 3,000–4,000，帝王蟹另計</td></tr>
+            <tr><td>帝王蟹一餐</td><td>NT$ 4,000–6,000</td><td>1.5–2kg 含小菜炒飯</td></tr>
+            <tr><td>票券（已先訂）</td><td>NT$ 8,000–10,000</td><td>膠囊列車、樂天、Outlet 交通等</td></tr>
+            <tr><td>交通(含計程車)</td><td>NT$ 5,000–7,000</td><td>機場巴士 + 市內計程 + 地鐵</td></tr>
+            <tr><td>購物伴手禮</td><td>自由發揮</td><td>—</td></tr>
+            <tr><td><strong>合計（不含購物）</strong></td><td><strong>NT$ 65,000–93,000</strong></td><td>—</td></tr>
+          </tbody>
+        </table>
+      </section>
+
+      <section class="busan-section">
+        <h2>🛍 購物地圖</h2>
+
+        <h3>樂天 Outlet 東釜山店（<a href={`${base}/travel/busan/day5`}>Day 5</a> 主場）</h3>
+        <p style="color:var(--color-text-muted); font-size:var(--text-sm); margin: 0 0 var(--space-3);">
+          釜山廣域市機張郡機張海岸路 147（東海線奧西利亞站 1 號出口走 10 分鐘）<br />
+          週一–四 10:30–20:30 ／週五–日 10:30–21:00
+        </p>
+        <table class="tbl">
+          <thead><tr><th>品牌</th><th>樓層</th><th>重點</th></tr></thead>
+          <tbody>
+            <tr><td>Snow Peak</td><td>1F 運動戶外區</td><td>韓製版超划算，網友買到薄外套有特價</td></tr>
+            <tr><td>⭐ Mont-bell</td><td>1F 運動戶外區</td><td><strong>網友實測買到 3 折</strong>，外套約 NT$ 1,200</td></tr>
+            <tr><td>The North Face</td><td>1F 運動戶外區</td><td>戶外服飾常 5–7 折</td></tr>
+            <tr><td>New Balance</td><td>1F 運動鞋區</td><td>韓國限定款台灣難買</td></tr>
+            <tr><td>Hazzys 英倫獵犬</td><td>1F 海外時裝</td><td>韓國原廠價比台灣便宜很多</td></tr>
+            <tr><td>Kodak</td><td>1F / 2F 年輕時尚</td><td>韓國潮服版型</td></tr>
+            <tr><td>National Geographic</td><td>1F / 2F 年輕時尚</td><td>韓國潮版，台灣較少通路</td></tr>
+          </tbody>
+        </table>
+        <div class="tip-box"><p><strong>App 查詢神器：</strong>下載「樂天 Outlet」App（有繁中），輸入品牌名查樓層位置；現場用 Naver Map 導航最準。</p></div>
+
+        <h3>新世界百貨 Centum City（<a href={`${base}/travel/busan/day6`}>Day 6 下午</a>）</h3>
+        <p style="color:var(--color-text-muted); font-size:var(--text-sm);">
+          釜山廣域市海雲台區 Centum 南大路 35（地鐵 2 號線 Centum City 站）<br />
+          <strong>Maison Kitsuné</strong> 是精品（不是 Outlet 品牌），韓國只在大型百貨設櫃，這間是釜山最齊全的選擇。
+        </p>
+
+        <h3>KPOP FRIENDS 南浦店（<a href={`${base}/travel/busan/day6`}>Day 6 中午</a>）</h3>
+        <p style="color:var(--color-text-muted); font-size:var(--text-sm);">
+          釜山廣域市中區南浦路 5 號 1 樓（在 BIFF 廣場糖餅攤旁，不用排隊就能買）
+        </p>
+        <div class="warn-box">
+          <h4>⚠️ KPOP FRIENDS 購物注意</h4>
+          <p>這家不是官方直營，類似自營周邊店。<strong>手燈價格被 Google 評論吐槽偏高</strong>（曾傳 GD 手燈鑰匙圈 ₩69,000，官方約 ₩9,000）。<br />
+          建議：ZOA 系列周邊可入手 → 手燈先去官方比價再決定 → 商品都沒標價要刷條碼才知道。</p>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>💡 退稅實用資訊</h2>
+        <ul style="color:var(--color-text); font-size:var(--text-sm); padding-left: 20px;">
+          <li>韓國滿 ₩30,000 可退稅</li>
+          <li>Outlet / 百貨可現場退稅（在櫃台直接折抵或寄回信用卡）</li>
+          <li>Olive Young、機場退稅機也都可以</li>
+          <li>帶護照、刷卡或現金都可退</li>
+          <li>退稅商品要在 3 個月內帶離韓國（不要打開包裝）</li>
+        </ul>
+      </section>
+
+      <section class="busan-section">
+        <h2>⚠️ 重要提醒</h2>
+        <div class="busan-info-grid">
+          <div class="busan-info-card"><h4>天空膠囊列車</h4><p>夕陽場一定要提前訂，至少 1–2 週前。</p></div>
+          <div class="busan-info-card"><h4>機張市場公休</h4><p>每月最後一個週二（露天攤販除外），6/18 無影響。</p></div>
+          <div class="busan-info-card"><h4>札嘎其市場</h4><p>每月第 1、3 個週二公休，6/16、6/23 是週一不影響。</p></div>
+          <div class="busan-info-card"><h4>Thrill On The Mug</h4><p>週二公休（已避開）。</p></div>
+          <div class="busan-info-card"><h4>甘川洞文化村</h4><p>18:00 關閉，要早上去。</p></div>
+          <div class="busan-info-card"><h4>韓國餐廳訂位</h4><p>烤肉店建議用 Naver Map 內建訂位或請飯店幫忙。</p></div>
+          <div class="busan-info-card"><h4>小費</h4><p>韓國不需給小費。</p></div>
+          <div class="busan-info-card"><h4>插座</h4><p>韓國是圓孔插座，要帶轉接頭。</p></div>
+        </div>
+      </section>
+
+      <section class="busan-section">
+        <h2>🚇 釜山交通快速指南</h2>
+        <h3>機場 ↔ 市區</h3>
+        <ul style="color:var(--color-text); font-size:var(--text-sm); padding-left: 20px;">
+          <li><strong>利木津巴士</strong>：金海機場 ↔ 海雲台 / 西面 / 南浦，約 50–60 分鐘</li>
+          <li><strong>輕軌 + 地鐵</strong>：金海輕軌轉地鐵 2 號線到海雲台，較慢</li>
+          <li><strong>計程車 / Uber</strong>：到海雲台約 4–5 萬韓元</li>
+        </ul>
+        <h3>釜山地鐵主要路線</h3>
+        <ul style="color:var(--color-text); font-size:var(--text-sm); padding-left: 20px;">
+          <li><strong>2 號線（綠）</strong>：海雲台 ↔ 廣安里 ↔ 西面 ↔ 沙上（往金海）</li>
+          <li><strong>1 號線（橘）</strong>：南浦 ↔ 札嘎其 ↔ 西面 ↔ 釜山站</li>
+          <li><strong>東海線</strong>：海雲台外圍往機張、龍宮寺方向</li>
+        </ul>
+      </section>
     </div>
   </section>
 </BaseLayout>
