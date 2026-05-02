@@ -2,11 +2,28 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import '../../../styles/busan.css';
 const base = import.meta.env.BASE_URL;
+
+const stops = [
+  { name: '白淺灘文化村', time: '10:00', lat: 35.0808, lng: 129.0476, type: 'sight',
+    note: '흰여울문화마을 — 影島海邊絕壁聚落', naverQuery: '흰여울문화마을' },
+  { name: 'Thrill On The Mug', time: '12:00', lat: 35.0793, lng: 129.0469, type: 'food',
+    note: '스릴온더머그 — 影島海景咖啡（週二公休，今天週日有開）', naverQuery: '스릴온더머그' },
+  { name: '松島海上纜車', time: '14:30', lat: 35.0760, lng: 129.0244, type: 'sight', must: true,
+    note: '송도해상케이블카 — 水晶車廂，通行證含', naverQuery: '송도해상케이블카' },
+  { name: '樂天百貨光復店', time: '16:30', lat: 35.0977, lng: 129.0344, type: 'shop',
+    note: '롯데백화점 광복점 — 南浦地標，有屋頂花園', naverQuery: '롯데백화점 광복점' },
+  { name: '60 年傳統奶奶湯飯', time: '19:00', lat: 35.1011, lng: 129.0341, type: 'food',
+    note: '60년전통할매국밥 — 南浦洞老字號', naverQuery: '60년전통할매국밥' },
+  { name: '西面 / 南浦飯店打包', time: '晚上', lat: 35.0995, lng: 129.0335, type: 'transit',
+    note: '查好明天機場巴士班次', naverQuery: '남포역' },
+];
 ---
 <BaseLayout
   title="Day 7 · 影島海景 + 採購收尾"
   description="釜山 7 日 Day 7：白淺灘文化村、Thrill On The Mug 海景咖啡、松島水晶纜車、樂天百貨光復店、最後一碗豬肉湯飯。"
 >
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -34,82 +51,102 @@ const base = import.meta.env.BASE_URL;
         </div>
       </header>
 
-      <section class="busan-section">
-        <h2>📋 今日行程</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="num">1</div>
-            <div class="item-card">
-              <div class="time">10:00</div>
-              <div class="title">白淺灘文化村 흰여울문화마을</div>
-              <p class="desc">影島海邊絕壁聚落，比甘川洞更詩意。沿海小徑走，腳下就是海。</p>
-              <div class="tags"><span class="tag">景點</span><span class="tag">海景</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">2</div>
-            <div class="item-card">
-              <div class="time">12:00</div>
-              <div class="title">Thrill On The Mug（午餐 + 咖啡）</div>
-              <p class="desc">影島無敵海景咖啡，週日有開（<strong>週二公休</strong> 已避開）。</p>
-              <div class="tags"><span class="tag">咖啡</span><span class="tag">海景</span><span class="tag">輕食</span></div>
-            </div>
-          </li>
-          <li class="timeline-item must">
-            <div class="num">3</div>
-            <div class="item-card">
-              <div class="time">14:30</div>
-              <div class="title">松島海上纜車（水晶車廂）⭐</div>
-              <p class="desc">跨海纜車，腳下透明，可以看到海。<strong>Visit Busan Pass 含</strong>。</p>
-              <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必搭</span><span class="tag">海景</span></div>
-            </div>
-          </li>
-          <li class="timeline-item shop">
-            <div class="num">4</div>
-            <div class="item-card">
-              <div class="time">16:30</div>
-              <div class="title">樂天百貨光復店 + 屋頂花園</div>
-              <p class="desc">南浦洞地標，屋頂花園可以遠望影島和港灣。最後採買一些伴手禮。</p>
-              <div class="tags"><span class="tag">百貨</span><span class="tag">伴手禮</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">5</div>
-            <div class="item-card">
-              <div class="time">19:00</div>
-              <div class="title">60 年傳統奶奶湯飯（晚餐）</div>
-              <p class="desc">南浦洞老字號，最後一碗豬肉湯飯收尾。湯頭清淡，米飯飽足。</p>
-              <div class="tags"><span class="tag">湯飯</span><span class="tag">老店</span><span class="tag">收尾</span></div>
-            </div>
-          </li>
-          <li class="timeline-item transit">
-            <div class="num">6</div>
-            <div class="item-card">
-              <div class="time">晚上</div>
-              <div class="title">飯店打包行李</div>
-              <p class="desc">查好明天的機場巴士班次，整理東西、退稅單據放在隨身包。</p>
-              <div class="tags"><span class="tag">收尾</span></div>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <div class="day-grid">
+        <div>
+          <section class="busan-section">
+            <h2>📋 今日行程</h2>
+            <ol class="timeline">
+              <li class="timeline-item" data-stop="0">
+                <div class="num">1</div>
+                <div class="item-card">
+                  <div class="time">10:00</div>
+                  <div class="title">白淺灘文化村 흰여울문화마을</div>
+                  <p class="desc">影島海邊絕壁聚落，比甘川洞更詩意。沿海小徑走，腳下就是海。</p>
+                  <div class="tags"><span class="tag">景點</span><span class="tag">海景</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="1">
+                <div class="num">2</div>
+                <div class="item-card">
+                  <div class="time">12:00</div>
+                  <div class="title">Thrill On The Mug（午餐 + 咖啡）</div>
+                  <p class="desc">影島無敵海景咖啡，週日有開（<strong>週二公休</strong> 已避開）。</p>
+                  <div class="tags"><span class="tag">咖啡</span><span class="tag">海景</span><span class="tag">輕食</span></div>
+                </div>
+              </li>
+              <li class="timeline-item must" data-stop="2">
+                <div class="num">3</div>
+                <div class="item-card">
+                  <div class="time">14:30</div>
+                  <div class="title">松島海上纜車(水晶車廂)⭐</div>
+                  <p class="desc">跨海纜車，腳下透明，可以看到海。<strong>Visit Busan Pass 含</strong>。</p>
+                  <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必搭</span><span class="tag">海景</span></div>
+                </div>
+              </li>
+              <li class="timeline-item shop" data-stop="3">
+                <div class="num">4</div>
+                <div class="item-card">
+                  <div class="time">16:30</div>
+                  <div class="title">樂天百貨光復店 + 屋頂花園</div>
+                  <p class="desc">南浦洞地標，屋頂花園可以遠望影島和港灣。最後採買一些伴手禮。</p>
+                  <div class="tags"><span class="tag">百貨</span><span class="tag">伴手禮</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="4">
+                <div class="num">5</div>
+                <div class="item-card">
+                  <div class="time">19:00</div>
+                  <div class="title">60 年傳統奶奶湯飯（晚餐）</div>
+                  <p class="desc">南浦洞老字號，最後一碗豬肉湯飯收尾。湯頭清淡，米飯飽足。</p>
+                  <div class="tags"><span class="tag">湯飯</span><span class="tag">老店</span><span class="tag">收尾</span></div>
+                </div>
+              </li>
+              <li class="timeline-item transit" data-stop="5">
+                <div class="num">6</div>
+                <div class="item-card">
+                  <div class="time">晚上</div>
+                  <div class="title">飯店打包行李</div>
+                  <p class="desc">查好明天的機場巴士班次，整理東西、退稅單據放在隨身包。</p>
+                  <div class="tags"><span class="tag">收尾</span></div>
+                </div>
+              </li>
+            </ol>
+          </section>
 
-      <section class="busan-section">
-        <h2>💡 今日小提醒</h2>
-        <div class="tip-box">
-          <h4>影島動線</h4>
-          <p>白淺灘 → Thrill On The Mug → 松島纜車，三個點都在影島區，可以用計程車或租電動腳踏車串起來。從南浦洞過影島大橋約 5 分鐘。</p>
+          <section class="busan-section">
+            <h2>💡 今日小提醒</h2>
+            <div class="tip-box">
+              <h4>影島動線</h4>
+              <p>白淺灘 → Thrill On The Mug → 松島纜車，三個點都在影島區，可以用計程車或租電動腳踏車串起來。從南浦洞過影島大橋約 5 分鐘。</p>
+            </div>
+            <div class="warn-box">
+              <h4>⚠️ 退稅單據要保留</h4>
+              <p>今天最後一天購物，記得把所有退稅單據和未拆封的退稅商品<strong>放在容易拿出來的地方</strong>，明天機場退稅機才有效率。<br />
+              退稅商品要在 <strong>3 個月內</strong> 帶離韓國（不要打開包裝）。</p>
+            </div>
+            <div class="tip-box">
+              <h4>松島纜車兌換流程</h4>
+              <p>進站前在售票口出示 Visit Busan Pass App QR Code + 護照，換實體票。水晶車廂要排隊，建議下午早點到。</p>
+            </div>
+          </section>
         </div>
-        <div class="warn-box">
-          <h4>⚠️ 退稅單據要保留</h4>
-          <p>今天最後一天購物，記得把所有退稅單據和未拆封的退稅商品<strong>放在容易拿出來的地方</strong>，明天機場退稅機才有效率。<br />
-          退稅商品要在 <strong>3 個月內</strong> 帶離韓國（不要打開包裝）。</p>
-        </div>
-        <div class="tip-box">
-          <h4>松島纜車兌換流程</h4>
-          <p>進站前在售票口出示 Visit Busan Pass App QR Code + 護照，換實體票。水晶車廂要排隊，建議下午早點到。</p>
-        </div>
-      </section>
+
+        <aside>
+          <div class="map-card">
+            <div class="map-header">
+              <strong>🗺 Day 7 路線地圖</strong>
+              <span class="stops-count">{stops.length} stops</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-legend">
+              <span class="dot" style="--dot:#1565c0">景點</span>
+              <span class="dot" style="--dot:#ff7043">美食</span>
+              <span class="dot" style="--dot:#4db6ac">購物</span>
+              <span class="dot" style="--dot:#d32f2f">必搭</span>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <nav class="day-nav">
         <a href={`${base}/travel/busan/day6`}>
@@ -123,4 +160,10 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </div>
   </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+  <script src={`${base}/busan/map.js`} is:inline></script>
+  <script is:inline define:vars={{ stops }}>
+    document.addEventListener('DOMContentLoaded', () => buildDayMap('map', stops));
+  </script>
 </BaseLayout>

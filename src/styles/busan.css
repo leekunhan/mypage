@@ -405,6 +405,145 @@
   color: var(--color-text-muted);
 }
 
+/* ---------- Two-column day layout (Wanderlog-style) ---------- */
+.day-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 460px;
+  gap: var(--space-6);
+  align-items: start;
+}
+@media (max-width: 1024px) {
+  .day-grid { grid-template-columns: 1fr; }
+}
+
+/* ---------- Map card ---------- */
+.map-card {
+  background: var(--color-bg-card);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-lg);
+  overflow: hidden;
+  position: sticky;
+  top: calc(var(--header-height) + var(--space-4));
+}
+.map-card .map-header {
+  padding: var(--space-3) var(--space-4);
+  background: linear-gradient(90deg, var(--busan-deep), var(--busan-mid));
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.map-card .map-header strong {
+  font-size: var(--text-sm);
+  letter-spacing: 0.5px;
+}
+.map-card .map-header .stops-count {
+  font-size: var(--text-xs);
+  background: rgba(255,255,255,0.22);
+  padding: 3px 10px;
+  border-radius: 999px;
+}
+#map {
+  width: 100%;
+  height: 540px;
+  background: #0e2336;
+}
+.map-legend {
+  padding: var(--space-3) var(--space-4);
+  border-top: 1px solid var(--color-border);
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  align-items: center;
+}
+.map-legend .dot {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.map-legend .dot::before {
+  content: "";
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--dot, var(--busan-mid));
+}
+
+/* Leaflet marker overrides */
+.busan-marker {
+  background: var(--busan-mid);
+  border: 2px solid white;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.4);
+  border-radius: 50%;
+  color: white;
+  font-weight: 700;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 28px !important;
+  height: 28px !important;
+}
+.busan-marker.food { background: var(--busan-sunset); }
+.busan-marker.shop { background: var(--busan-mint); }
+.busan-marker.sight { background: var(--busan-mid); }
+.busan-marker.transit { background: var(--color-text-muted); }
+.busan-marker.must { background: var(--busan-warn); }
+
+.leaflet-popup-content-wrapper {
+  background: var(--color-bg-card);
+  color: var(--color-text);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius);
+}
+.leaflet-popup-tip { background: var(--color-bg-card); }
+.leaflet-popup-content {
+  font-family: var(--font-sans);
+  margin: 12px 14px;
+  font-size: 13px;
+  line-height: 1.5;
+}
+.leaflet-popup-content b {
+  display: block;
+  font-size: 14px;
+  color: var(--color-text-heading);
+  margin-bottom: 4px;
+}
+.leaflet-popup-content .pop-time {
+  display: inline-block;
+  background: var(--busan-foam);
+  color: var(--busan-light);
+  padding: 2px 8px;
+  border-radius: 999px;
+  font-size: 11px;
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+.leaflet-popup-content .pop-note {
+  color: var(--color-text-muted);
+  font-size: 12px;
+  margin-top: 4px;
+}
+.leaflet-popup-content a { color: var(--color-primary-light); }
+
+/* Timeline-item interactive states (matched with marker) */
+.timeline-item { cursor: pointer; transition: transform 0.15s; }
+.timeline-item:hover .item-card,
+.timeline-item.is-active .item-card {
+  border-color: var(--busan-light);
+  box-shadow: 0 8px 22px rgba(21, 101, 192, 0.18);
+  transform: translateY(-1px);
+}
+.timeline-item.is-active .num {
+  background: var(--busan-mid);
+  color: white;
+}
+.timeline-item.is-active.food .num { background: var(--busan-sunset); color: white; }
+.timeline-item.is-active.shop .num { background: var(--busan-mint); color: white; }
+.timeline-item.is-active.must .num { background: var(--busan-warn); color: white; }
+
 /* ---------- Day pagination footer ---------- */
 .day-nav {
   margin-top: var(--space-12);
@@ -446,4 +585,6 @@
   .busan-hero h1 { font-size: var(--text-3xl); }
   .busan-hero .subtitle { font-size: var(--text-base); }
   .day-nav { grid-template-columns: 1fr; }
+  .map-card { position: static; }
+  #map { height: 380px; }
 }

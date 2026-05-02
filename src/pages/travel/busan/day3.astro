@@ -2,11 +2,26 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import '../../../styles/busan.css';
 const base = import.meta.env.BASE_URL;
+
+const stops = [
+  { name: '海東龍宮寺', time: '09:30', lat: 35.1881, lng: 129.2231, type: 'sight',
+    note: '해동용궁사 — 海邊佛寺，韓國少見', naverQuery: '해동용궁사' },
+  { name: 'Skyline Luge Busan', time: '11:30', lat: 35.1949, lng: 129.2218, type: 'sight', must: true,
+    note: '스카이라인 루지 부산 — 通行證含雙趟', naverQuery: '스카이라인루지 부산' },
+  { name: '樂天 Outlet 東釜山 3F 美食街', time: '13:30', lat: 35.1969, lng: 129.2196, type: 'food',
+    note: '롯데프리미엄아울렛 동부산점 — 今天只吃飯，Day 5 再血拼', naverQuery: '롯데프리미엄아울렛 동부산점' },
+  { name: '釜山樂天世界 Magic Forest', time: '14:30', lat: 35.1986, lng: 129.2191, type: 'sight', must: true,
+    note: '롯데월드 어드벤처 부산 — 通行證含', naverQuery: '롯데월드 어드벤처 부산' },
+  { name: '機張市場（帝王蟹）', time: '17:30', lat: 35.2462, lng: 129.2156, type: 'food', must: true,
+    note: '기장시장 — 韓國最有名帝王蟹市場', naverQuery: '기장시장' },
+];
 ---
 <BaseLayout
   title="Day 3 · 東釜山玩樂日 · 龍宮寺 + 樂天 + 帝王蟹"
   description="釜山 7 日 Day 3：海東龍宮寺、Skyline Luge、釜山樂天世界、機張市場帝王蟹。"
 >
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -33,76 +48,95 @@ const base = import.meta.env.BASE_URL;
         </div>
       </header>
 
-      <section class="busan-section">
-        <h2>📋 今日行程</h2>
-        <ol class="timeline">
-          <li class="timeline-item">
-            <div class="num">1</div>
-            <div class="item-card">
-              <div class="time">09:30</div>
-              <div class="title">海東龍宮寺</div>
-              <p class="desc">韓國少見的海邊佛寺，整座寺廟蓋在岩壁上。建議早去避開團客，從海雲台搭計程車約 30 分鐘。</p>
-              <div class="tags"><span class="tag">景點</span><span class="tag">必拍</span></div>
-            </div>
-          </li>
-          <li class="timeline-item must">
-            <div class="num">2</div>
-            <div class="item-card">
-              <div class="time">11:30</div>
-              <div class="title">Skyline Luge Busan ⭐</div>
-              <p class="desc">從龍宮寺走路 8–10 分鐘可到。Visit Busan Pass 含 1 次（雙趟），坐纜車上山滑卡丁車下來，超刺激。</p>
-              <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必玩</span><span class="tag">含雙趟</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">3</div>
-            <div class="item-card">
-              <div class="time">13:30</div>
-              <div class="title">樂天 Outlet 東釜山店 3F 美食街（午餐）</div>
-              <p class="desc">這天<strong>不血拼</strong>，只是來吃飯。便宜選擇多，吃飽繼續玩。Day 5 才是真正的 Outlet 主場。</p>
-              <div class="tags"><span class="tag">午餐</span><span class="tag">便利</span></div>
-            </div>
-          </li>
-          <li class="timeline-item must">
-            <div class="num">4</div>
-            <div class="item-card">
-              <div class="time">14:30</div>
-              <div class="title">釜山樂天世界 Magic Forest ⭐</div>
-              <p class="desc">跟 Outlet、Luge 都在<strong>同園區</strong>！Visit Busan Pass 含。不像首爾樂天那麼大，但精緻好玩，半天可以逛完。</p>
-              <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必玩</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food must">
-            <div class="num">5</div>
-            <div class="item-card">
-              <div class="time">17:30</div>
-              <div class="title">機張市場 帝王蟹晚餐 ⭐</div>
-              <p class="desc">韓國最有名的帝王蟹市場。1.5–2kg 帝王蟹約 ₩100,000–150,000，含小菜炒飯。從樂天世界搭計程車約 15 分鐘。</p>
-              <div class="tags"><span class="tag">必吃</span><span class="tag">海鮮</span><span class="tag">晚餐</span></div>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <div class="day-grid">
+        <div>
+          <section class="busan-section">
+            <h2>📋 今日行程</h2>
+            <ol class="timeline">
+              <li class="timeline-item" data-stop="0">
+                <div class="num">1</div>
+                <div class="item-card">
+                  <div class="time">09:30</div>
+                  <div class="title">海東龍宮寺</div>
+                  <p class="desc">韓國少見的海邊佛寺，整座寺廟蓋在岩壁上。建議早去避開團客，從海雲台搭計程車約 30 分鐘。</p>
+                  <div class="tags"><span class="tag">景點</span><span class="tag">必拍</span></div>
+                </div>
+              </li>
+              <li class="timeline-item must" data-stop="1">
+                <div class="num">2</div>
+                <div class="item-card">
+                  <div class="time">11:30</div>
+                  <div class="title">Skyline Luge Busan ⭐</div>
+                  <p class="desc">從龍宮寺走路 8–10 分鐘可到。Visit Busan Pass 含 1 次（雙趟），坐纜車上山滑卡丁車下來，超刺激。</p>
+                  <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必玩</span><span class="tag">含雙趟</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="2">
+                <div class="num">3</div>
+                <div class="item-card">
+                  <div class="time">13:30</div>
+                  <div class="title">樂天 Outlet 東釜山店 3F 美食街（午餐）</div>
+                  <p class="desc">這天<strong>不血拼</strong>，只是來吃飯。便宜選擇多，吃飽繼續玩。Day 5 才是真正的 Outlet 主場。</p>
+                  <div class="tags"><span class="tag">午餐</span><span class="tag">便利</span></div>
+                </div>
+              </li>
+              <li class="timeline-item must" data-stop="3">
+                <div class="num">4</div>
+                <div class="item-card">
+                  <div class="time">14:30</div>
+                  <div class="title">釜山樂天世界 Magic Forest ⭐</div>
+                  <p class="desc">跟 Outlet、Luge 都在<strong>同園區</strong>！Visit Busan Pass 含。不像首爾樂天那麼大，但精緻好玩，半天可以逛完。</p>
+                  <div class="tags"><span class="tag">通行證 ✓</span><span class="tag">必玩</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food must" data-stop="4">
+                <div class="num">5</div>
+                <div class="item-card">
+                  <div class="time">17:30</div>
+                  <div class="title">機張市場 帝王蟹晚餐 ⭐</div>
+                  <p class="desc">韓國最有名的帝王蟹市場。1.5–2kg 帝王蟹約 ₩100,000–150,000，含小菜炒飯。從樂天世界搭計程車約 15 分鐘。</p>
+                  <div class="tags"><span class="tag">必吃</span><span class="tag">海鮮</span><span class="tag">晚餐</span></div>
+                </div>
+              </li>
+            </ol>
+          </section>
 
-      <section class="busan-section">
-        <h2>💡 今日小提醒</h2>
-        <div class="tip-box">
-          <h4>東釜山一日邏輯</h4>
-          <p>龍宮寺、Skyline Luge、樂天世界、Outlet、機張市場全部都在<strong>機張郡</strong>這帶，東海線「奧西利亞站」是核心。Day 3 玩景點 + 吃海鮮，<a href={`${base}/travel/busan/day5`}>Day 5</a> 再回來這區純購物。</p>
+          <section class="busan-section">
+            <h2>💡 今日小提醒</h2>
+            <div class="tip-box">
+              <h4>東釜山一日邏輯</h4>
+              <p>龍宮寺、Skyline Luge、樂天世界、Outlet、機張市場全部都在<strong>機張郡</strong>這帶，東海線「奧西利亞站」是核心。Day 3 玩景點 + 吃海鮮，<a href={`${base}/travel/busan/day5`}>Day 5</a> 再回來這區純購物。</p>
+            </div>
+            <div class="tip-box">
+              <h4>機張交通建議</h4>
+              <ul>
+                <li>搭 1003 公車或東海線電鐵都可</li>
+                <li>Uber / KakaoTaxi 從海雲台約 30–40 分鐘</li>
+                <li>從樂天到機張市場直接搭計程車比較快</li>
+              </ul>
+            </div>
+            <div class="warn-box">
+              <h4>⚠️ 帝王蟹點餐眉角</h4>
+              <p>進市場一樓選蟹，二樓代客料理。<strong>先講好總價</strong>（蟹重量 × 單價 + 處理費），避免帳單爭議。1kg 約 ₩60,000–80,000。</p>
+            </div>
+          </section>
         </div>
-        <div class="tip-box">
-          <h4>機張交通建議</h4>
-          <ul>
-            <li>搭 1003 公車或東海線電鐵都可</li>
-            <li>Uber / KakaoTaxi 從海雲台約 30–40 分鐘</li>
-            <li>從樂天到機張市場直接搭計程車比較快</li>
-          </ul>
-        </div>
-        <div class="warn-box">
-          <h4>⚠️ 帝王蟹點餐眉角</h4>
-          <p>進市場一樓選蟹，二樓代客料理。<strong>先講好總價</strong>（蟹重量 × 單價 + 處理費），避免帳單爭議。1kg 約 ₩60,000–80,000。</p>
-        </div>
-      </section>
+
+        <aside>
+          <div class="map-card">
+            <div class="map-header">
+              <strong>🗺 Day 3 路線地圖</strong>
+              <span class="stops-count">{stops.length} stops</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-legend">
+              <span class="dot" style="--dot:#1565c0">景點</span>
+              <span class="dot" style="--dot:#ff7043">美食</span>
+              <span class="dot" style="--dot:#d32f2f">必玩 / 必吃</span>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <nav class="day-nav">
         <a href={`${base}/travel/busan/day2`}>
@@ -116,4 +150,10 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </div>
   </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+  <script src={`${base}/busan/map.js`} is:inline></script>
+  <script is:inline define:vars={{ stops }}>
+    document.addEventListener('DOMContentLoaded', () => buildDayMap('map', stops));
+  </script>
 </BaseLayout>

@@ -2,11 +2,28 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import '../../../styles/busan.css';
 const base = import.meta.env.BASE_URL;
+
+const stops = [
+  { name: '甘川洞文化村', time: '10:00', lat: 35.0975, lng: 129.0103, type: 'sight', must: true,
+    note: '감천문화마을 — 釜山小聖托里尼，最晚 18:00 關', naverQuery: '감천문화마을' },
+  { name: '陜川一流豬肉湯飯', time: '12:30', lat: 35.0989, lng: 129.0291, type: 'food',
+    note: '합천일류돼지국밥 — 米其林必比登', naverQuery: '합천일류돼지국밥' },
+  { name: 'KPOP FRIENDS 南浦店', time: '14:00', lat: 35.0985, lng: 129.0286, type: 'shop',
+    note: '남포로 5 — BIFF 廣場糖餅攤旁，GD ZOA 周邊', naverQuery: '케이팝프렌즈 남포점' },
+  { name: '札嘎其市場 + 富平罐頭夜市', time: '14:30', lat: 35.0967, lng: 129.0306, type: 'sight',
+    note: '자갈치시장 — 韓國最大水產市場', naverQuery: '자갈치시장' },
+  { name: '新世界百貨 Centum City', time: '16:30', lat: 35.1697, lng: 129.1294, type: 'shop',
+    note: '신세계 센텀시티 — 全球最大百貨，Maison Kitsuné', naverQuery: '신세계 센텀시티점' },
+  { name: '百花烤腸 西面', time: '19:30', lat: 35.1573, lng: 129.0596, type: 'food',
+    note: '백화곱창 — 西面人氣烤腸', naverQuery: '백화곱창 서면' },
+];
 ---
 <BaseLayout
   title="Day 6 · 甘川洞 + 札嘎其 + 南浦追星"
   description="釜山 7 日 Day 6：甘川洞文化村、米其林必比登湯飯、KPOP FRIENDS、札嘎其市場、新世界 Centum City。"
 >
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -34,89 +51,109 @@ const base = import.meta.env.BASE_URL;
         </div>
       </header>
 
-      <section class="busan-section">
-        <h2>📋 今日行程</h2>
-        <ol class="timeline">
-          <li class="timeline-item must">
-            <div class="num">1</div>
-            <div class="item-card">
-              <div class="time">10:00</div>
-              <div class="title">甘川洞文化村 ⭐</div>
-              <p class="desc">釜山小聖托里尼，山坡上的彩色小屋。建議<strong>早上人少</strong>時去；<strong>最晚 18:00 關</strong>。從西面搭計程車約 25 分鐘。</p>
-              <div class="tags"><span class="tag">必拍</span><span class="tag">早上去</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">2</div>
-            <div class="item-card">
-              <div class="time">12:30</div>
-              <div class="title">陜川一流豬肉湯飯（午餐）</div>
-              <p class="desc">南浦洞名店，<strong>米其林必比登</strong>。湯頭濃郁，配大蒜泡菜超讚。</p>
-              <div class="tags"><span class="tag">米其林</span><span class="tag">湯飯</span></div>
-            </div>
-          </li>
-          <li class="timeline-item shop">
-            <div class="num">3</div>
-            <div class="item-card">
-              <div class="time">14:00</div>
-              <div class="title">KPOP FRIENDS 南浦店 ⭐</div>
-              <p class="desc">買 <strong>GD 大小花、ZOA 小花系列、盆栽周邊</strong>。地址：釜山中區南浦路 5 號 1 樓（在 BIFF 廣場糖餅攤旁）。</p>
-              <div class="tags"><span class="tag">追星</span><span class="tag">周邊</span><span class="tag warn">手燈價偏高</span></div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <div class="num">4</div>
-            <div class="item-card">
-              <div class="time">14:30</div>
-              <div class="title">札嘎其市場 + 富平罐頭夜市</div>
-              <p class="desc">韓國最大水產市場，可現買現切生魚片。富平夜市旁邊就是。</p>
-              <div class="tags"><span class="tag">市場</span><span class="tag">海鮮</span></div>
-            </div>
-          </li>
-          <li class="timeline-item shop">
-            <div class="num">5</div>
-            <div class="item-card">
-              <div class="time">16:30</div>
-              <div class="title">新世界百貨 Centum City</div>
-              <p class="desc">全球最大百貨（金氏紀錄）。找 <strong>Maison Kitsuné</strong> 等精品。從南浦洞搭地鐵 2 號線到 Centum City 站，約 30 分鐘。</p>
-              <div class="tags"><span class="tag">精品</span><span class="tag">百貨</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">6</div>
-            <div class="item-card">
-              <div class="time">19:30</div>
-              <div class="title">百花烤腸（晚餐 · 回西面）</div>
-              <p class="desc">西面人氣烤腸店。從 Centum 搭地鐵 2 號線回西面約 20 分鐘。</p>
-              <div class="tags"><span class="tag">烤腸</span><span class="tag">西面</span></div>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <div class="day-grid">
+        <div>
+          <section class="busan-section">
+            <h2>📋 今日行程</h2>
+            <ol class="timeline">
+              <li class="timeline-item must" data-stop="0">
+                <div class="num">1</div>
+                <div class="item-card">
+                  <div class="time">10:00</div>
+                  <div class="title">甘川洞文化村 ⭐</div>
+                  <p class="desc">釜山小聖托里尼，山坡上的彩色小屋。建議<strong>早上人少</strong>時去；<strong>最晚 18:00 關</strong>。從西面搭計程車約 25 分鐘。</p>
+                  <div class="tags"><span class="tag">必拍</span><span class="tag">早上去</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="1">
+                <div class="num">2</div>
+                <div class="item-card">
+                  <div class="time">12:30</div>
+                  <div class="title">陜川一流豬肉湯飯（午餐）</div>
+                  <p class="desc">南浦洞名店，<strong>米其林必比登</strong>。湯頭濃郁，配大蒜泡菜超讚。</p>
+                  <div class="tags"><span class="tag">米其林</span><span class="tag">湯飯</span></div>
+                </div>
+              </li>
+              <li class="timeline-item shop" data-stop="2">
+                <div class="num">3</div>
+                <div class="item-card">
+                  <div class="time">14:00</div>
+                  <div class="title">KPOP FRIENDS 南浦店 ⭐</div>
+                  <p class="desc">買 <strong>GD 大小花、ZOA 小花系列、盆栽周邊</strong>。地址：釜山中區南浦路 5 號 1 樓（在 BIFF 廣場糖餅攤旁）。</p>
+                  <div class="tags"><span class="tag">追星</span><span class="tag">周邊</span><span class="tag warn">手燈價偏高</span></div>
+                </div>
+              </li>
+              <li class="timeline-item" data-stop="3">
+                <div class="num">4</div>
+                <div class="item-card">
+                  <div class="time">14:30</div>
+                  <div class="title">札嘎其市場 + 富平罐頭夜市</div>
+                  <p class="desc">韓國最大水產市場，可現買現切生魚片。富平夜市旁邊就是。</p>
+                  <div class="tags"><span class="tag">市場</span><span class="tag">海鮮</span></div>
+                </div>
+              </li>
+              <li class="timeline-item shop" data-stop="4">
+                <div class="num">5</div>
+                <div class="item-card">
+                  <div class="time">16:30</div>
+                  <div class="title">新世界百貨 Centum City</div>
+                  <p class="desc">全球最大百貨（金氏紀錄）。找 <strong>Maison Kitsuné</strong> 等精品。從南浦洞搭地鐵 2 號線到 Centum City 站，約 30 分鐘。</p>
+                  <div class="tags"><span class="tag">精品</span><span class="tag">百貨</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="5">
+                <div class="num">6</div>
+                <div class="item-card">
+                  <div class="time">19:30</div>
+                  <div class="title">百花烤腸（晚餐 · 回西面）</div>
+                  <p class="desc">西面人氣烤腸店。從 Centum 搭地鐵 2 號線回西面約 20 分鐘。</p>
+                  <div class="tags"><span class="tag">烤腸</span><span class="tag">西面</span></div>
+                </div>
+              </li>
+            </ol>
+          </section>
 
-      <section class="busan-section">
-        <h2>💡 今日小提醒</h2>
-        <div class="warn-box">
-          <h4>⚠️ KPOP FRIENDS 買物建議</h4>
-          <p>這家<strong>不是官方直營</strong>，類似自營周邊店。<strong>手燈價格被 Google 評論吐槽偏高</strong>（曾傳 GD 手燈鑰匙圈賣 ₩69,000，官方約 ₩9,000）。<br /><br />
-          建議：<br />
-          ✓ ZOA 系列周邊可入手（不用排隊優勢）<br />
-          ✓ 手燈先去官方比價再決定<br />
-          ✓ 商品都沒標價，要刷條碼才知道</p>
+          <section class="busan-section">
+            <h2>💡 今日小提醒</h2>
+            <div class="warn-box">
+              <h4>⚠️ KPOP FRIENDS 買物建議</h4>
+              <p>這家<strong>不是官方直營</strong>，類似自營周邊店。<strong>手燈價格被 Google 評論吐槽偏高</strong>（曾傳 GD 手燈鑰匙圈賣 ₩69,000，官方約 ₩9,000）。<br /><br />
+              建議：<br />
+              ✓ ZOA 系列周邊可入手（不用排隊優勢）<br />
+              ✓ 手燈先去官方比價再決定<br />
+              ✓ 商品都沒標價，要刷條碼才知道</p>
+            </div>
+            <div class="tip-box">
+              <h4>🚇 路線邏輯</h4>
+              <p>今天的路線：西面 → 南西海邊（甘川洞）→ 南浦市區（湯飯/KPOP/札嘎其）→ 東向 Centum City → 回西面。<strong>地鐵 1 號線 + 2 號線 + 計程車混搭最有效率</strong>。甘川洞要爬坡，穿好走的鞋。</p>
+            </div>
+            <div class="tip-box">
+              <h4>💸 KPOP FRIENDS 價格參考</h4>
+              <ul>
+                <li>ZOA 筆約 ₩26X 元（比代購 NT$280–300 便宜）</li>
+                <li>大頭零錢包約 NT$ 1,000+</li>
+                <li>各家 K-Pop 偶像專輯、周邊都有（Blackpink、SUJU、EXO、SEVENTEEN、TWICE 早期款）</li>
+              </ul>
+            </div>
+          </section>
         </div>
-        <div class="tip-box">
-          <h4>🚇 路線邏輯</h4>
-          <p>今天的路線：西面 → 南西海邊（甘川洞）→ 南浦市區（湯飯/KPOP/札嘎其）→ 東向 Centum City → 回西面。<strong>地鐵 1 號線 + 2 號線 + 計程車混搭最有效率</strong>。甘川洞要爬坡，穿好走的鞋。</p>
-        </div>
-        <div class="tip-box">
-          <h4>💸 KPOP FRIENDS 價格參考</h4>
-          <ul>
-            <li>ZOA 筆約 ₩26X 元（比代購 NT$280–300 便宜）</li>
-            <li>大頭零錢包約 NT$ 1,000+</li>
-            <li>各家 K-Pop 偶像專輯、周邊都有（Blackpink、SUJU、EXO、SEVENTEEN、TWICE 早期款）</li>
-          </ul>
-        </div>
-      </section>
+
+        <aside>
+          <div class="map-card">
+            <div class="map-header">
+              <strong>🗺 Day 6 路線地圖</strong>
+              <span class="stops-count">{stops.length} stops</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-legend">
+              <span class="dot" style="--dot:#1565c0">景點</span>
+              <span class="dot" style="--dot:#ff7043">美食</span>
+              <span class="dot" style="--dot:#4db6ac">購物 / 追星</span>
+              <span class="dot" style="--dot:#d32f2f">必去</span>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <nav class="day-nav">
         <a href={`${base}/travel/busan/day5`}>
@@ -130,4 +167,10 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </div>
   </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+  <script src={`${base}/busan/map.js`} is:inline></script>
+  <script is:inline define:vars={{ stops }}>
+    document.addEventListener('DOMContentLoaded', () => buildDayMap('map', stops));
+  </script>
 </BaseLayout>

@@ -2,11 +2,26 @@
 import BaseLayout from '../../../layouts/BaseLayout.astro';
 import '../../../styles/busan.css';
 const base = import.meta.env.BASE_URL;
+
+const stops = [
+  { name: '海里丹路 / DUPLIT', time: '10:30', lat: 35.1646, lng: 129.1633, type: 'food',
+    note: '해리단길 — 海雲台站旁文青咖啡街', naverQuery: '해리단길' },
+  { name: 'Busan X The Sky', time: '13:00', lat: 35.1717, lng: 129.1419, type: 'sight',
+    note: '釜山 LCT 100 樓觀景台 / 부산엑스더스카이', naverQuery: '부산엑스더스카이' },
+  { name: '天空膠囊列車（尾浦站起點）', time: '17:00', lat: 35.1632, lng: 129.1791, type: 'sight', must: true,
+    note: 'Sky Capsule (Mipo Station) / 스카이캡슐 미포정거장 — 夕陽場必訂', naverQuery: '해운대 블루라인파크 미포정거장' },
+  { name: '青沙浦（灌籃高手平交道 / 海岸列車轉乘）', time: '18:30', lat: 35.1517, lng: 129.1953, type: 'sight',
+    note: '청사포 — 紅白雙燈塔 + 海岸散步', naverQuery: '청사포' },
+  { name: '廣安木 海雲台店', time: '19:30', lat: 35.1611, lng: 129.1660, type: 'food',
+    note: '광안목 해운대점 — 乾式熟成烤肉，需訂位', naverQuery: '광안목 해운대점' },
+];
 ---
 <BaseLayout
   title="Day 2 · 海雲台藍線 · 天空膠囊夕陽場"
   description="釜山 7 日 Day 2：海里丹路咖啡、X The Sky 100 樓、天空膠囊夕陽場、廣安木乾式熟成烤肉。"
 >
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+
   <section class="page-content">
     <div class="container">
       <nav class="breadcrumb" aria-label="Breadcrumb">
@@ -33,72 +48,91 @@ const base = import.meta.env.BASE_URL;
         </div>
       </header>
 
-      <section class="busan-section">
-        <h2>📋 今日行程</h2>
-        <ol class="timeline">
-          <li class="timeline-item food">
-            <div class="num">1</div>
-            <div class="item-card">
-              <div class="time">10:30</div>
-              <div class="title">海里丹路 해리단길 早午餐 + 咖啡</div>
-              <p class="desc">海雲台站旁的文青小巷弄。<strong>DUPLIT</strong> 是熱門選擇，也可以挑一間順眼的店進去。</p>
-              <div class="tags"><span class="tag">美食</span><span class="tag">咖啡</span><span class="tag">早午餐</span></div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <div class="num">2</div>
-            <div class="item-card">
-              <div class="time">13:00</div>
-              <div class="title">Busan X The Sky 100 樓展望台</div>
-              <p class="desc">LCT 大樓 100 樓，世界最高星巴克就在這。可以一次把海雲台、廣安大橋、五六島盡收眼底。</p>
-              <div class="tags"><span class="tag">景點</span><span class="tag">展望</span><span class="tag">通行證可選</span></div>
-            </div>
-          </li>
-          <li class="timeline-item must">
-            <div class="num">3</div>
-            <div class="item-card">
-              <div class="time">17:00</div>
-              <div class="title">天空膠囊列車（尾浦 → 青沙浦）<span class="star">⭐</span></div>
-              <p class="desc">夕陽場最美，務必<strong>提前 1–2 週</strong>訂！列車慢慢沿海岸滑行，整路都是海。</p>
-              <div class="tags"><span class="tag">必訂</span><span class="tag">夕陽</span><span class="tag warn">不在通行證內</span></div>
-            </div>
-          </li>
-          <li class="timeline-item">
-            <div class="num">4</div>
-            <div class="item-card">
-              <div class="time">18:30</div>
-              <div class="title">青沙浦 · 灌籃高手平交道 + 海岸散步</div>
-              <p class="desc">青沙浦是個漁村，以紅白雙塔燈塔聞名。回程改搭<strong>海岸列車</strong>（Visit Busan Pass 可免費），慢慢看海回到尾浦。</p>
-              <div class="tags"><span class="tag">景點</span><span class="tag">拍照</span></div>
-            </div>
-          </li>
-          <li class="timeline-item food">
-            <div class="num">5</div>
-            <div class="item-card">
-              <div class="time">19:30</div>
-              <div class="title">廣安木 海雲台店（晚餐）</div>
-              <p class="desc">乾式熟成烤肉名店。記得提前訂位，建議用 Naver Map 內建訂位或請飯店幫忙。</p>
-              <div class="tags"><span class="tag">美食</span><span class="tag">烤肉</span><span class="tag warn">需訂位</span></div>
-            </div>
-          </li>
-        </ol>
-      </section>
+      <div class="day-grid">
+        <div>
+          <section class="busan-section">
+            <h2>📋 今日行程</h2>
+            <ol class="timeline">
+              <li class="timeline-item food" data-stop="0">
+                <div class="num">1</div>
+                <div class="item-card">
+                  <div class="time">10:30</div>
+                  <div class="title">海里丹路 해리단길 早午餐 + 咖啡</div>
+                  <p class="desc">海雲台站旁的文青小巷弄。<strong>DUPLIT</strong> 是熱門選擇，也可以挑一間順眼的店進去。</p>
+                  <div class="tags"><span class="tag">美食</span><span class="tag">咖啡</span><span class="tag">早午餐</span></div>
+                </div>
+              </li>
+              <li class="timeline-item" data-stop="1">
+                <div class="num">2</div>
+                <div class="item-card">
+                  <div class="time">13:00</div>
+                  <div class="title">Busan X The Sky 100 樓展望台</div>
+                  <p class="desc">LCT 大樓 100 樓，世界最高星巴克就在這。可以一次把海雲台、廣安大橋、五六島盡收眼底。</p>
+                  <div class="tags"><span class="tag">景點</span><span class="tag">展望</span><span class="tag">通行證可選</span></div>
+                </div>
+              </li>
+              <li class="timeline-item must" data-stop="2">
+                <div class="num">3</div>
+                <div class="item-card">
+                  <div class="time">17:00</div>
+                  <div class="title">天空膠囊列車（尾浦 → 青沙浦）<span class="star">⭐</span></div>
+                  <p class="desc">夕陽場最美，務必<strong>提前 1–2 週</strong>訂！列車慢慢沿海岸滑行，整路都是海。</p>
+                  <div class="tags"><span class="tag">必訂</span><span class="tag">夕陽</span><span class="tag warn">不在通行證內</span></div>
+                </div>
+              </li>
+              <li class="timeline-item" data-stop="3">
+                <div class="num">4</div>
+                <div class="item-card">
+                  <div class="time">18:30</div>
+                  <div class="title">青沙浦 · 灌籃高手平交道 + 海岸散步</div>
+                  <p class="desc">青沙浦是個漁村，以紅白雙塔燈塔聞名。回程改搭<strong>海岸列車</strong>（Visit Busan Pass 可免費），慢慢看海回到尾浦。</p>
+                  <div class="tags"><span class="tag">景點</span><span class="tag">拍照</span></div>
+                </div>
+              </li>
+              <li class="timeline-item food" data-stop="4">
+                <div class="num">5</div>
+                <div class="item-card">
+                  <div class="time">19:30</div>
+                  <div class="title">廣安木 海雲台店（晚餐）</div>
+                  <p class="desc">乾式熟成烤肉名店。記得提前訂位，建議用 Naver Map 內建訂位或請飯店幫忙。</p>
+                  <div class="tags"><span class="tag">美食</span><span class="tag">烤肉</span><span class="tag warn">需訂位</span></div>
+                </div>
+              </li>
+            </ol>
+          </section>
 
-      <section class="busan-section">
-        <h2>💡 今日小提醒</h2>
-        <div class="warn-box">
-          <h4>⚠️ 天空膠囊列車不在 Visit Busan Pass 內</h4>
-          <p>很多人以為可以用通行證進，但<strong>它不在 Big 5 名單</strong>，要單獨在 Klook / KKday 訂，夕陽場很搶手，至少提前 1–2 週。</p>
+          <section class="busan-section">
+            <h2>💡 今日小提醒</h2>
+            <div class="warn-box">
+              <h4>⚠️ 天空膠囊列車不在 Visit Busan Pass 內</h4>
+              <p>很多人以為可以用通行證進，但<strong>它不在 Big 5 名單</strong>，要單獨在 Klook / KKday 訂，夕陽場很搶手，至少提前 1–2 週。</p>
+            </div>
+            <div class="tip-box">
+              <h4>單買海岸列車 ₩7,000 比較划算</h4>
+              <p>海岸列車（不是膠囊列車）票價便宜，Big 5 名額留給更貴的景點（樂天、Luge、Club D Oasis）。</p>
+            </div>
+            <div class="tip-box">
+              <h4>Thrill On The Mug 為什麼今天不去？</h4>
+              <p>這家影島超紅的海景咖啡<strong>每週二公休</strong>，所以排到 <a href={`${base}/travel/busan/day7`}>Day 7（週日）</a>。</p>
+            </div>
+          </section>
         </div>
-        <div class="tip-box">
-          <h4>單買海岸列車 ₩7,000 比較划算</h4>
-          <p>海岸列車（不是膠囊列車）票價便宜，Big 5 名額留給更貴的景點（樂天、Luge、Club D Oasis）。</p>
-        </div>
-        <div class="tip-box">
-          <h4>Thrill On The Mug 為什麼今天不去？</h4>
-          <p>這家影島超紅的海景咖啡<strong>每週二公休</strong>，所以排到 <a href={`${base}/travel/busan/day7`}>Day 7（週日）</a>。</p>
-        </div>
-      </section>
+
+        <aside>
+          <div class="map-card">
+            <div class="map-header">
+              <strong>🗺 Day 2 路線地圖</strong>
+              <span class="stops-count">{stops.length} stops</span>
+            </div>
+            <div id="map"></div>
+            <div class="map-legend">
+              <span class="dot" style="--dot:#1565c0">景點</span>
+              <span class="dot" style="--dot:#ff7043">美食</span>
+              <span class="dot" style="--dot:#d32f2f">必訂</span>
+            </div>
+          </div>
+        </aside>
+      </div>
 
       <nav class="day-nav">
         <a href={`${base}/travel/busan/day1`}>
@@ -112,4 +146,10 @@ const base = import.meta.env.BASE_URL;
       </nav>
     </div>
   </section>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" is:inline></script>
+  <script src={`${base}/busan/map.js`} is:inline></script>
+  <script is:inline define:vars={{ stops }}>
+    document.addEventListener('DOMContentLoaded', () => buildDayMap('map', stops));
+  </script>
 </BaseLayout>
